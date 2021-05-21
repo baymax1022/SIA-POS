@@ -1,0 +1,51 @@
+#nav-sidebar {
+  float: left;
+  width: 12%;
+  height: 88vh;
+  /* background-color: #f5f4e9; */
+  padding: 0px !important;
+  /* pls add shadows later */
+}
+#nav-sidebar-list {
+  width: 100%;
+  border-style: none;
+  padding-top: 50px !important;
+  display: flex;
+  flex-direction: column;
+}
+.nav-item {
+  border-style: none;
+  border-width: 1px;
+  padding: 8px !important;
+  padding-left: 30px !important;
+}
+.nav-item:hover, .nav-item:active {
+    width: 100%;
+    color: var(--black) !important;
+    padding: 8px !important;
+    font-size: 20px;
+}
+.nav-item-active, .nav-item-active:active, .nav-item-active:hover {
+  width: 125%;
+  color: var(--white) !important;
+  clip-path: polygon(90% 0, 100% 50%, 90% 100%, 0% 100%, 0% 0%);
+  padding: 8px !important;
+  font-size: 26px;
+}
+.div-add-item{
+  float: left;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.div-add-item button{ 
+  float: left;
+  padding: 15px;
+  border: none;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 20px;
+}
+.div-add-item button:hover{
+  background-color: transparent;
+}

@@ -1,4 +1,138 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* GLOBAL */
+html, body {
+    height: 100%; }
+body {
+  margin: 0;
+  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+  background-color: #EDECDF;
+}
+a {
+  color: black;
+  text-decoration: none !important;
+}
+a:hover{
+  font-weight: bold;
+}
+table{
+  float: left;
+  width: 100%;
+  padding: 20px;
+  border-collapse: collapse;
+}
+th{
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+td{
+  padding: 10px;
+  border-bottom: 1px solid gray;
+  text-align: center;
+}
+/* CARD FOR THE RIGHT DIV */
+.card-main{  
+  margin-left: 20px;
+  margin-top: 20px;
+  background-color: white;
+  float: left;
+  width : 80%; 
+  height: 70%;
+  padding: 10px;
+  border-radius: 30px;
+  overflow: auto;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+/* Buttons in card-main css */
+
+/* Plain Button Design */
+.card-main-button{
+  background-color: lightgray;
+  padding: 9px;
+  border: none;
+  border-radius: 10px;
+  width: 140px;
+}
+.card-main-button:hover{
+  background-color: transparent;
+}
+/* Edit Button Design */
+.card-edit-button{
+  color: #289672;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+}
+.card-edit-button:hover{
+  background-color: #EDECDF;
+}
+/* Delete Button Design */
+.card-delete-button{
+  color: #fb3640;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+}
+.card-delete-button:hover{
+  background-color: #EDECDF;
+}
+/* View Button */
+.card-view-button{
+  color: gray;;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+}
+.card-view-button:hover{
+  background-color: #EDECDF;
+}
+/* Label for Title Page */
+.list-label{
+  float: left;
+  width: 30%;
+  padding: 10px;
+}
+/* Search Design */
+.search-input{
+  float: left;
+  width: 30%;
+  padding: 10px;
+}
+.search-input input{
+  background-color: #f4f3f3;
+  padding: 10px;
+  width: 50%;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+
+/* Others */
+.card{
+  float: left;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.container{
+  padding: 10px;
+}
+.div-product-td{
+  float: left; 
+  padding: 1px;
+  width: 210px;
+  overflow: auto;
+}
+.div-edit-td{
+  float: left; 
+  padding: 1px;
+  width: 100px;
+  overflow: auto;
+}
+.div-product-td p{
+  padding: 10px;
+}
+.td-avail{
+  color: #289672;
+}

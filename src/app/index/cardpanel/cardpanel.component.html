@@ -1,0 +1,38 @@
+<div class="card-main">
+  <div class="list-label">
+    <h1><i class="fas fa-clipboard"></i> Customer Orders</h1>
+  </div>
+  <div class="search-input">
+    <label for="search"><i class="fas fa-search"></i>&nbsp; <input id="search" name="search" placeholder="search"></label>
+  </div>
+  <div>
+    <table>
+      <tr>
+        <th>Name</th>
+        <!-- <th>Ingredients</th> -->
+        <th>Available</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let post of post">
+        <td style="width: 30%">  
+          <div style="float: left; padding-left: 10px">
+            <div class="div-product-td"><p>{{ post.product_name}}</p></div>
+            <!-- TO DO :: SHOW PRODUCT & INGREDIENTS AND ( UPDATE FUNCTION ) -->
+            <!-- <div class="div-edit-td"> <button class="card-edit-button"><i class="fas fa-edit"></i>&nbsp; Edit</button> </div> -->
+          </div>
+        </td>
+        <!-- TO DO :: VIEW INGREDIENTS WHERE PRODUCT_ID -->
+        <!-- <td><button class="card-main-button"><i class="fas fa-eye"></i>&nbsp;view</button></td> -->
+        <!-- TODO :: FOR EACH INGREDIENT WHERE PRODUCT ID * IF * AN INGREDIENT HAS 0 QUANTITY AVAILABLE IS = NO -->
+        <td class="td-avail">Yes</td>
+         <!-- TODO :: ARCHIVE PRODUCT  -->
+        <td> 
+          <button class="card-view-button"><i class="fas fa-eye"></i>&nbsp;view</button> &nbsp;
+          <button class="card-edit-button"><i class="fas fa-edit"></i>&nbsp; Edit</button> &nbsp;
+          <button class="card-delete-button"><i class="fas fa-trash-alt"></i>&nbsp; Delete</button> 
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
