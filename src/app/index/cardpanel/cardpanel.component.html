@@ -10,7 +10,8 @@
       <tr>
         <th>Name</th>
         <!-- <th>Ingredients</th> -->
-        <th>Available</th>
+        <th>Availability</th>
+        <th>Price</th>
         <th>Actions</th>
       </tr>
       <tr *ngFor="let post of post">
@@ -27,6 +28,9 @@
         <td class="td-avail">Yes</td>
          <!-- TODO :: ARCHIVE PRODUCT  -->
         <td> 
+          
+        </td>
+        <td>
           <button class="card-view-button"><i class="fas fa-eye"></i>&nbsp;view</button> &nbsp;
           <button class="card-edit-button"><i class="fas fa-edit"></i>&nbsp; Edit</button> &nbsp;
           <button class="card-delete-button"><i class="fas fa-trash-alt"></i>&nbsp; Delete</button> 
