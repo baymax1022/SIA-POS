@@ -59,6 +59,9 @@ import { TestingComponent } from './testing/testing.component';
 // HTTP
 import { HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './index/modal/modal.component';
+import { DashboardComponent } from './index/dashboard/dashboard.component';
+import { InvoiceComponent } from './index/invoice/invoice.component';
+import { OrderComponent } from './index/order/order.component';
 
 
 @NgModule({
@@ -70,7 +73,10 @@ import { ModalComponent } from './index/modal/modal.component';
     HeaderComponent,
     CardpanelComponent,
     TestingComponent,
-    ModalComponent
+    ModalComponent,
+    DashboardComponent,
+    InvoiceComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

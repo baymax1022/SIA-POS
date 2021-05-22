@@ -8,6 +8,7 @@ import { DataService } from '../services/data.service'; // Service
 })
 export class IndexComponent implements OnInit {
   // Variables ----------------
+
   ing: any; // ----- this is the result ----------
   ings: any; // ------ this will be the payload from the result ---------
 
@@ -16,6 +17,7 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     this.getIngredients(); // ----- RUNS FUNCTIONS --------
   }
+  
   // GET ----------------
 
   // GET INGREDIENTS --------------

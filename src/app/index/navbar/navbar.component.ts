@@ -9,7 +9,7 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class NavbarComponent implements OnInit {
 
-
+ 
   showFiller = false;
 
   constructor(public dialog: MatDialog) { }
@@ -19,5 +19,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }
