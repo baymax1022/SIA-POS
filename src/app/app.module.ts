@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './index/header/header.component';
-import { CardpanelComponent } from './index/cardpanel/cardpanel.component';
+
 
 //Modules Import
 
@@ -58,9 +58,7 @@ import { MatTableModule } from '@angular/material/table';
 import { TestingComponent } from './testing/testing.component';
 // HTTP
 import { HttpClientModule } from '@angular/common/http';
-import { ModalComponent } from './index/modal/modal.component';
 import { DashboardComponent } from './index/dashboard/dashboard.component';
-import { InvoiceComponent } from './index/invoice/invoice.component';
 import { OrderComponent } from './index/order/order.component';
 
 
@@ -71,11 +69,8 @@ import { OrderComponent } from './index/order/order.component';
     IndexComponent,
     LoginComponent,
     HeaderComponent,
-    CardpanelComponent,
     TestingComponent,
-    ModalComponent,
     DashboardComponent,
-    InvoiceComponent,
     OrderComponent
   ],
   imports: [

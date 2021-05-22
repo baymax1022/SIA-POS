@@ -1,10 +1,102 @@
 <nav id="nav-sidebar">
   <div class="div-add-item">
-    <button (click)="openDialog()">Add New Order &nbsp;<i class="fas fa-plus"></i></button>
+ 
     
   </div>
   <div id="nav-sidebar-list">
-    <a href="" id="sidebar-home" class="nav-item"><span class='icon-field'><i class="fa fa-home"></i></span>&nbsp; Orders</a>
-    <a href="" id="sidebar-home" class="nav-item"><span class='icon-field'></span><i class="fas fa-sign-out-alt"></i>&nbsp; Logout</a>
+    <a  (click)="openOrder()" id="sidebar-home" class="nav-item"><span class='icon-field'><i class="fa fa-home"></i></span>&nbsp; Add Order </a>
+    <a (click)="openInvoice()" id="sidebar-home" class="nav-item"><span class='icon-field'></span><i class="fas fa-sign-out-alt"></i>&nbsp; Sales Invoice</a>
   </div>
 </nav>
+
+
+
+<div class="card-main" *ngIf="Invoice">
+  <div class="list-label">
+    <h1><i class="fas fa-clipboard"></i> Customer Orders</h1>
+  </div>
+  <div class="search-input">
+    <label for="search"><i class="fas fa-search"></i>&nbsp; <input id="search" name="search" placeholder="search"></label>
+  </div>
+  <div>
+    
+  </div>
+</div>
+
+
+<div class="card-main" *ngIf="Order">
+  <div class="list-label1">
+    
+    <h1 class="logo1"> Cocolime</h1>
+    <h1> Customer's Order</h1>
+    <div class="content-container">
+      <mat-form-field appearance="fill">
+        <mat-label >Order No.</mat-label>
+         <input matInput readonly value="">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Payment Method</mat-label>
+        <mat-select>
+          <mat-option value="one">Cash</mat-option>
+          <mat-option value="two">Card</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Dining</mat-label>
+        <mat-select>
+          <mat-option value="one">Dine in</mat-option>
+          <mat-option value="two">Take out</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label >Order No.</mat-label>
+         <input matInput readonly value="">
+      </mat-form-field>
+      <button (click)="openDialog()">Add Item</button>
+    </div>
+  <div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef> Weight </th>
+        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div>
+    <button>Submit</button>
+    <button>Show Orders</button>
+  </div>
+  </div>
+ 
+</div>
+
+
