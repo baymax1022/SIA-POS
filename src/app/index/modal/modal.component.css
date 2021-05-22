@@ -1,0 +1,29 @@
+.add-order button{
+    padding: 10px !important;
+    border: none;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 20%;
+  }
+button:hover, button:active {
+    width: auto;
+    color: var(--black) !important;
+    padding: 8px !important;
+    font-size: 20px;
+}
+.desc-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+.desc-full-width {
+    width: 100%;
+  }
+
+.description {
+    margin:auto;
+}
