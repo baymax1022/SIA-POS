@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
   constructor(public dialog: MatDialog) {
     this.sortedData = this.desserts.slice();
   }
-  openDialog() {
+  openOrder() {
     this.dialog.open(OrderComponent);
   }
 

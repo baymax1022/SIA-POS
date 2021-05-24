@@ -18,12 +18,14 @@
   border-width: 1px;
   padding: 8px !important;
   padding-left: 30px !important;
+  
 }
 .nav-item:hover, .nav-item:active {
     width: 100%;
     color: var(--black) !important;
     padding: 8px !important;
     font-size: 20px;
+    cursor: pointer;
 }
 .nav-item-active, .nav-item-active:active, .nav-item-active:hover {
   width: 125%;

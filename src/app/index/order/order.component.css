@@ -1,0 +1,33 @@
+.starters button {
+    margin-right: 20px;
+    width: 200px;
+    height: 200px;
+    
+}
+.soups button {
+    margin-right: 20px;
+    width: 200px;
+    height: 200px;
+    
+}
+
+.noods button {
+    margin-right: 20px;
+    width: 200px;
+    height: 200px;
+    font-size: 50px;
+}
+.grill button {
+    margin-right: 20px;
+    width: 200px;
+    height: 200px;
+    
+}
+
+button:hover {
+    padding: 8px !important;
+}
+button {
+    cursor: pointer;
+    margin-top: 10px;
+}

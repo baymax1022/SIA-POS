@@ -1,33 +1,31 @@
-
-
 .card-main {
   display: flex;
   justify-content: center;
+  }
+  .logo1{
   
- 
-}
-.logo1{
- 
-  font-family: 'Pacifico', cursive;
-  font-size: 50px;
-}
-h1{
-  text-align: center;
-}
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+  }
+  h1{
+    text-align: center;
+  }
 
-mat-form-field{
+  mat-form-field{
 
-  margin-left: 50px;
-}
+    margin-left: 50px;
+  }
 
-.list-label1{
+  .list-label1{
+    
+    width: 70%;
+    padding: 10px;
+  }
+  .mat-sort-header-container {
+    align-items: center;
+  }
+  td{
+    text-align: left;
+  }
+
   
-  width: 70%;
-  padding: 10px;
-}
-.mat-sort-header-container {
-  align-items: center;
-}
-td{
-  text-align: left;
-}
