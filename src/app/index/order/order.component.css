@@ -39,13 +39,12 @@ button {
 .sideContainer{
 background-color: tomato;
 float: left;
-width: 450px;
-height: 300px;
+width: 700px;
+height: 500px;
 }
 
 .menuContainer{
 background-color: teal;
-float: left;
-width: 450px;
-height: 300px;
+
+
 }
