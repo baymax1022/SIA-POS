@@ -34,7 +34,7 @@ export class NavbarComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
 //Single Page Routing
-  Order:boolean = false;
+  Order:boolean = true;
   Invoice:boolean = false;
 
   showFiller = false;

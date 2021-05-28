@@ -31,3 +31,21 @@ button {
     cursor: pointer;
     margin-top: 10px;
 }
+.addOrderContainer{
+    box-shadow: none;
+    margin:auto 0;
+}
+
+.sideContainer{
+background-color: tomato;
+float: left;
+width: 450px;
+height: 300px;
+}
+
+.menuContainer{
+background-color: teal;
+float: left;
+width: 450px;
+height: 300px;
+}
