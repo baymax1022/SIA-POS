@@ -1,27 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderComponent } from '../order/order.component';
 import {MatDialog} from '@angular/material/dialog';
-
-//table's data
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-//table's data
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
+import { DataService } from '../../services/data.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-navbar',
@@ -30,16 +11,16 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class NavbarComponent implements OnInit {
 
-//table's data
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-//Single Page Routing
   Order:boolean = true;
   Invoice:boolean = false;
+  edit: boolean = false; 
+  view: boolean = false;
+
+  
 
   showFiller = false;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,  private ds: DataService) { }
 
   openOrder(){
     this.Order= true;
@@ -53,8 +34,91 @@ export class NavbarComponent implements OnInit {
     this.dialog.open(OrderComponent);
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.pullOrder();
   }
 
+  deleteBtn(){
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
+  }
+  openView(){
+    this.view = true;
+  }
+  closeView(){
+    this.view = false;
+  }
 
+  openEdit(){
+    this.edit = true;
+  }
+
+  closeEdit(){
+    this.edit = false;
+  }
+//adding function to database
+  products:any=[
+    {title:'card1',subtitle:'test1',price:20, img:'../../assets/faveIcon/bihon.jpg'},
+    {title:'card2',subtitle:'test2',price:3, img:'../../assets/faveIcon/bihon.jpg'},
+    {title:'card3',subtitle:'test3',price:2, img:'../../assets/faveIcon/bihon.jpg'}
+    
+  ]
+  cardInfo:any={};
+  
+  addOrder = (products:any) =>{
+    this.cardInfo.product_name=products.title;
+    this.cardInfo.quantity=products.subtitle;
+    this.cardInfo.price=products.price;
+    this.ds.sendApiRequest("addOrder", JSON.parse(JSON.stringify(this.cardInfo))).subscribe((data: any) => {
+    this.pullOrder();
+    });
+    console.log(this.cardInfo);
+    
+  }
+  //pull function order
+  order:any;
+  pullOrder() 
+  { 
+    this.ds.sendApiRequest("order", null).subscribe((data: { payload: any; }) => { this.order = data.payload; 
+    }) 
+    
+  }
+
+//delete function order
+async delOrder(e: any)
+ { 
+   this.cardInfo.id = e; 
+   Swal.fire({ title: 'Remove item?', 
+    icon: 'warning', 
+    showCancelButton: true, 
+    confirmButtonColor: '#3085d6', 
+    cancelButtonColor: '#d33', 
+    confirmButtonText: 'Yes' 
+  }).then((result) => 
+  { 
+    if (result.isConfirmed) 
+    { 
+      this.ds.sendApiRequest("delOrder", JSON.parse(JSON.stringify(this.cardInfo))).subscribe((data: any) => 
+        { 
+          this.pullOrder(); 
+        }); 
+        Swal.fire( 'Deleted!', 'Item has been removed.', 'success' ) 
+      } 
+    }) 
+  }
 }

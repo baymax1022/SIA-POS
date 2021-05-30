@@ -62,6 +62,7 @@ import { DashboardComponent } from './index/dashboard/dashboard.component';
 import { OrderComponent } from './index/order/order.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +72,7 @@ import { OrderComponent } from './index/order/order.component';
     HeaderComponent,
     TestingComponent,
     DashboardComponent,
-    OrderComponent
+    OrderComponent   
   ],
   imports: [
     BrowserModule,

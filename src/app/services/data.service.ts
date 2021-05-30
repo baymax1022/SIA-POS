@@ -1,23 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; // HTTP
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  // URL ----------------------------------------
+  constructor(private http: HttpClient) {}
 
-  baseURL = 'http://localhost/SIA-POS/api/';
+  apiURL = "http://localhost/SIA-POS/api/";
 
-  // USE HTTP CLIENT ----------------------------
-
-  constructor(private http: HttpClient) { console.log('its working!') }
-
-  // GET DATA FROM API --------------------------
-
-  public getData(endpoint: any) {
-
-    return this.http.get(this.baseURL + endpoint);
+  sendApiRequest(method:any, data:any) {
+    return <any>(
+      this.http.post(this.apiURL + method, btoa(JSON.stringify(data)))
+    );
   }
 }

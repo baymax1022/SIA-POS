@@ -60,9 +60,14 @@
  
 }
 .logo1{
- 
+  margin-right: 500px;
   font-family: 'Pacifico', cursive;
   font-size: 50px;
+}
+
+.logo2{
+  margin-right: 500px;
+
 }
 h1{
   text-align: center;
@@ -75,7 +80,7 @@ mat-form-field{
 
 .list-label1{
   
-  width: 80%;
+  width: 90%;
   padding: 10px;
 }
 .mat-sort-header-container {
@@ -83,4 +88,81 @@ mat-form-field{
 }
 td{
   text-align: left;
+}
+
+.div-product-td{
+  float: left; 
+  padding: auto;
+  width: 210px;
+  overflow: auto;
+}
+
+.search-input{
+  float: left;
+  padding-left: 10px;
+}
+
+.div-print-item{
+  padding-right: 100px;
+}
+
+.div-print-item button{ 
+  float: right;
+  padding: 15px;
+  border: none;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 20px;
+}
+.div-print-item button:hover{
+  background-color: #EDECDF;
+  padding: 17px;
+}
+
+.btn2 button {
+  border: none;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.btn2 button:hover {
+  background-color: #EDECDF;
+  cursor: pointer;
+  padding: 5px;
+}
+
+table {
+  width: 100%;
+}
+
+.menu button {
+  border: none;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 17px;
+}
+
+.menu button:hover {
+  background-color: #EDECDF;
+  cursor: pointer;
+  padding: 5px;
+}
+.menu-container mat-card:hover{
+  padding-right: 115px;
+  background-color: #EDECDF;
+  cursor: pointer;
+}
+.menu-container mat-card {
+  padding-right: 110px;
+  margin-right: 20px;
+}
+.menu-title {
+  font-size: 20px;
+  font-family: 'Pacifico', cursive;
+
 }
