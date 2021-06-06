@@ -86,9 +86,7 @@ mat-form-field{
 .mat-sort-header-container {
   align-items: center;
 }
-td{
-  text-align: left;
-}
+
 
 .div-product-td{
   float: left; 
@@ -134,9 +132,6 @@ td{
   padding: 5px;
 }
 
-table {
-  width: 100%;
-}
 
 .menu button {
   border: none;

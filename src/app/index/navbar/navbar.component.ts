@@ -73,20 +73,24 @@ export class NavbarComponent implements OnInit {
   }
 //adding function to database
   products:any=[
-    {title:'card1',subtitle:'test1',price:20, img:'../../assets/faveIcon/bihon.jpg'},
-    {title:'card2',subtitle:'test2',price:3, img:'../../assets/faveIcon/bihon.jpg'},
-    {title:'card3',subtitle:'test3',price:2, img:'../../assets/faveIcon/bihon.jpg'}
+    {title:'card1',subtitle:'1',price:20, img:'../../assets/faveIcon/bihon.jpg'},
+    {title:'card2',subtitle:'1',price:3, img:'../../assets/faveIcon/bihon.jpg'},
+    {title:'card3',subtitle:'1',price:2, img:'../../assets/faveIcon/bihon.jpg'}
     
   ]
   cardInfo:any={};
-  
+  inputText:any;
+    q:any;
   addOrder = (products:any) =>{
-    this.cardInfo.product_name=products.title;
-    this.cardInfo.quantity=products.subtitle;
-    this.cardInfo.price=products.price;
-    // this.ds.sendApiRequest("addOrder", JSON.parse(JSON.stringify(this.cardInfo))).subscribe((data: any) => {
-    // this.pullOrder();
-    // });
+    this.cardInfo.product_name = products.title ;
+    this.cardInfo.quantity = products.subtitle * this.inputText;
+    this.cardInfo.price = products.price * this.inputText;
+     this.q = this.inputText;
+
+   
+      this.ds.sendApiRequest("addOrder", JSON.parse(JSON.stringify(this.cardInfo))).subscribe((data: any) => {
+    this.pullOrder();
+    }); 
     console.log(this.cardInfo);
     
   }
@@ -102,7 +106,7 @@ export class NavbarComponent implements OnInit {
 //delete function order
 async delOrder(e: any)
  { 
-   this.cardInfo.id = e; 
+   this.cardInfo.prodID = e; 
    Swal.fire({ title: 'Remove item?', 
     icon: 'warning', 
     showCancelButton: true, 

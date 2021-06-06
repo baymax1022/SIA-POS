@@ -36,8 +36,8 @@ class Post{
 
     public function delOrder($d) { 
         $data = $d; 
-        $id = $data->id;
-         $res = $this->gm->delete('tbl_preorder', $data, "id = '$id'"); if ($res['code'] == 200) 
+        $prodID = $data->prodID;
+         $res = $this->gm->delete('tbl_preorder', $data, "prodID = '$prodID'"); if ($res['code'] == 200) 
          {  
             $payload = $res['data'];            
             $remarks = "success";            

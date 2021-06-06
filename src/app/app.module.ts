@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './index/header/header.component';
-
+import { FormsModule } from '@angular/forms';
 
 //Modules Import
 
@@ -116,7 +116,7 @@ import { OrderComponent } from './index/order/order.component';
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-
+    FormsModule,
     // HTTP
     HttpClientModule
   ],
