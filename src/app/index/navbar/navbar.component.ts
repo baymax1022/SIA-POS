@@ -84,9 +84,9 @@ export class NavbarComponent implements OnInit {
     this.cardInfo.product_name=products.title;
     this.cardInfo.quantity=products.subtitle;
     this.cardInfo.price=products.price;
-    this.ds.sendApiRequest("addOrder", JSON.parse(JSON.stringify(this.cardInfo))).subscribe((data: any) => {
-    this.pullOrder();
-    });
+    // this.ds.sendApiRequest("addOrder", JSON.parse(JSON.stringify(this.cardInfo))).subscribe((data: any) => {
+    // this.pullOrder();
+    // });
     console.log(this.cardInfo);
     
   }
@@ -95,7 +95,7 @@ export class NavbarComponent implements OnInit {
   pullOrder() 
   { 
     this.ds.sendApiRequest("order", null).subscribe((data: { payload: any; }) => { this.order = data.payload; 
-    }) 
+    })
     
   }
 
