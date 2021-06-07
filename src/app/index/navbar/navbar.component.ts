@@ -35,9 +35,10 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pullOrder();
-    this.pullPreOrder();
     this.pullProduct();
+    this.pullPreOrder();
+    this.pullOrder();
+    this.getTotal();
   }
 
   deleteBtn(){
@@ -109,10 +110,11 @@ export class NavbarComponent implements OnInit {
 
    
       this.ds.sendApiRequest("addPreOrder", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => {
-    this.pullPreOrder();
+        this.pullPreOrder();
     }); 
-    console.log(this.orderInfo);
     
+    console.log(this.orderInfo);
+
   }
   //getProduct
   productInfo: any={};
@@ -139,9 +141,12 @@ export class NavbarComponent implements OnInit {
   preOrder:any = {};
   pullPreOrder() 
   { 
-    this.ds.sendApiRequest("pre", null).subscribe((data: { payload: any; }) => { this.preOrder = data.payload; 
+    this.ds.sendApiRequest("pre", null).subscribe((data: { payload: any; }) => { 
+      this.preOrder = data.payload; 
     })
+    
     console.log(this.preOrder);
+    this.getTotal();
   }
   
 
@@ -197,10 +202,15 @@ async delOrder(e: any)
      }) 
    }
 
-
+   total: number = 0;
    getTotal() {
-     
-    
+    this.total = 0;
+    for (var i = 0; this.preOrder.length > i; i++){
+      console.log(this.preOrder[i].price);
+      this.total = this.total + this.preOrder[i].price;
+    }
+
+    console.log(this.total);
 
    }
 }
