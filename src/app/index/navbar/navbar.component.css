@@ -161,3 +161,9 @@ mat-form-field{
   font-family: 'Pacifico', cursive;
 
 }
+table{
+  float: left;
+  width: 100%;
+  padding: 20px;
+  border-collapse: collapse;
+}

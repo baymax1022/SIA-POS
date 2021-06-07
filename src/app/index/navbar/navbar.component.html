@@ -11,6 +11,35 @@
 <!--invoice table -->
 <div class="card-main" *ngIf="Invoice">
   <div class="list-label1">
+    <table>
+      <th >OrderNo.</th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Actions</th>
+    
+     <tr *ngFor="let order of order">
+     
+      <td>
+        {{ order.prodID }}
+      </td>
+      <td>
+        {{order.product_name}}
+      </td>
+      <td> 
+        {{order.quantity}}
+      </td>
+      <td> 
+        {{order.price}}
+      </td>
+      <td >
+        <button class="card-view-button" (click)="openView()"><i class="fas fa-eye"></i>&nbsp;view</button> &nbsp;
+        <button class="card-edit-button" (click)="openEdit()"><i class="fas fa-plus"></i>&nbsp; Add</button> &nbsp;
+        <button class="card-delete-button" (click)="delOrder(order.prodID);"><i class="fas fa-trash-alt"></i>&nbsp; Delete</button> 
+      </td>
+      
+    </tr>
+ </table>
   </div>
   <div>
     <div class="search-input">
@@ -53,56 +82,62 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <div>
-      <table>
-          <th >OrderNo.</th>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th>Price</th>
-          <th>Actions</th>
-        
-         <tr *ngFor="let order of order">
-         
-          <td>
-            {{ order.prodID }}
-          </td>
-          <td>
-            {{order.product_name}}
-          </td>
-          <td> 
-            {{order.quantity}}
-          </td>
-          <td> 
-            {{order.price}}
-          </td>
-          <td >
-            <button class="card-view-button" (click)="openView()"><i class="fas fa-eye"></i>&nbsp;view</button> &nbsp;
-            <button class="card-edit-button" (click)="openEdit()"><i class="fas fa-plus"></i>&nbsp; Add</button> &nbsp;
-            <button class="card-delete-button" (click)="delOrder(order.prodID);"><i class="fas fa-trash-alt"></i>&nbsp; Delete</button> 
-          </td>
-          
-        </tr>
-     </table>
-    </div>
-    
-    <div class="menu">
+  
+    <div class="menu" style="display: flex;">
+      <mat-card>
+        <p> Product Name  {{ cardInfo.product_name }}</p>
+        <p> Quantity  {{ cardInfo.quantity }}</p>
+        <p> Price  {{ cardInfo.price }}</p>
+      </mat-card>
       <br>
       <br>
       <label class="menu-title">Starters</label>
       <br>
       <br>
-
-      <div class="menu-container" style="display: inline-flex"*ngFor="let products of products" >
-         <mat-card style="width: 100px; text-align: center;" (click)="addOrder(products)"><img src="{{ products.img }}" alt="img" style="width: 200px; height: 200px; object-fit: flex;">
-
-          <p style="display: none;">{{ products.title }}</p><p style="display: none;">{{ products.subtitle }}</p><p style="display: none;">{{ products.price }}</p> </mat-card> 
+      <mat-tab-group>
+        <mat-tab label="For Starters">  
+          <div class="menu-container" style="display: inline-flex"*ngFor="let products of products" >
+              <mat-card style="width: 100px; text-align: center;" (click)="addOrder(products)">
+                  <img src="{{ products.img }}" alt="img" style="width: 200px; height: 200px; object-fit: flex;">
+                  <p style="display: none;">{{ products.title }}</p><p style="display: none;">{{ products.subtitle }}</p><p style="display: none;">{{ products.price }}</p> </mat-card> 
+       
+         </div> 
+        </mat-tab>
+        <mat-tab label="Soup For The Soul">  
+          <div class="menu-container" style="display: inline-flex"*ngFor="let products of products" >
+              <mat-card style="width: 100px; text-align: center;" (click)="addOrder(products)">
+                  <img src="{{ products.img }}" alt="img" style="width: 200px; height: 200px; object-fit: flex;">
+                  <p style="display: none;">{{ products.title }}</p><p style="display: none;">{{ products.subtitle }}</p><p style="display: none;">{{ products.price }}</p> </mat-card> 
+       
+         </div> 
+        </mat-tab>
+        <mat-tab label="Oodles Of Noodles">  
+          <div class="menu-container" style="display: inline-flex"*ngFor="let products of products" >
+              <mat-card style="width: 100px; text-align: center;" (click)="addOrder(products)">
+                  <img src="{{ products.img }}" alt="img" style="width: 100px; height: 200px; object-fit: flex;">
+                  <p style="display: none;">{{ products.title }}</p><p style="display: none;">{{ products.subtitle }}</p><p style="display: none;">{{ products.price }}</p> </mat-card> 
+       
+         </div> 
+        </mat-tab>
+        <mat-tab label="From The Grill">  
+          <div class="menu-container" style="display: inline-flex"*ngFor="let products of products" >
+              <mat-card style="width: 100px; text-align: center;" (click)="addOrder(products)">
+                  <img src="{{ products.img }}" alt="img" style="width: 200px; height: 200px; object-fit: flex;">
+                  <p style="display: none;">{{ products.title }}</p><p style="display: none;">{{ products.subtitle }}</p><p style="display: none;">{{ products.price }}</p> </mat-card> 
+       
+         </div> 
          
-        </div>
+        </mat-tab>
+        
+      </mat-tab-group>
       
     </div>
-    <input type="number" [(ngModel)]="inputText" placeholder="Insert Quantity"> 
+  
     <br>
+    
+    <input type="number" [(ngModel)]="inputText" placeholder="Insert Quantity"> 
   <div class="btn2">
+    
     <button (click)="addOrder(products)" >Submit</button>
     <button>Show Orders</button>
   </div>

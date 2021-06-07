@@ -18,12 +18,7 @@ a {
 a:hover{
   font-weight: bold;
 }
-table{
-  float: left;
-  width: 100%;
-  padding: 20px;
-  border-collapse: collapse;
-}
+
 th{
   padding: 10px;
   border-bottom: 1px solid black;

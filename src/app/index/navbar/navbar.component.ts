@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { OrderComponent } from '../order/order.component';
 import {MatDialog} from '@angular/material/dialog';
 import { DataService } from '../../services/data.service';
@@ -74,13 +74,14 @@ export class NavbarComponent implements OnInit {
 //adding function to database
   products:any=[
     {title:'card1',subtitle:'1',price:20, img:'../../assets/faveIcon/bihon.jpg'},
-    {title:'card2',subtitle:'1',price:3, img:'../../assets/faveIcon/bihon.jpg'},
-    {title:'card3',subtitle:'1',price:2, img:'../../assets/faveIcon/bihon.jpg'}
+    {title:'card2',subtitle:'1',price:3, img:'../../assets/faveIcon/bulaklak.jpg'},
+    {title:'card3',subtitle:'1',price:2, img:'../../assets/faveIcon/dynamite.jpg'}
     
   ]
   cardInfo:any={};
   inputText:any;
-    q:any;
+  q:any;
+ /*  @Input() title:string; */
   addOrder = (products:any) =>{
     this.cardInfo.product_name = products.title ;
     this.cardInfo.quantity = products.subtitle * this.inputText;
@@ -88,9 +89,9 @@ export class NavbarComponent implements OnInit {
      this.q = this.inputText;
 
    
-      this.ds.sendApiRequest("addOrder", JSON.parse(JSON.stringify(this.cardInfo))).subscribe((data: any) => {
+     /*  this.ds.sendApiRequest("addOrder", JSON.parse(JSON.stringify(this.cardInfo))).subscribe((data: any) => {
     this.pullOrder();
-    }); 
+    });  */
     console.log(this.cardInfo);
     
   }
@@ -103,6 +104,7 @@ export class NavbarComponent implements OnInit {
     
   }
 
+  
 //delete function order
 async delOrder(e: any)
  { 
