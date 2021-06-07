@@ -132,7 +132,13 @@ mat-form-field{
   padding: 5px;
 }
 
+th{
+  
+}
+td{
 
+  text-align: center;
+}
 .menu button {
   border: none;
   background-color: white;

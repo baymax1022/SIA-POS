@@ -19,15 +19,7 @@ a:hover{
   font-weight: bold;
 }
 
-th{
-  padding: 10px;
-  border-bottom: 1px solid black;
-}
-td{
-  padding: 10px;
-  border-bottom: 1px solid gray;
-  text-align: center;
-}
+
 /* CARD FOR THE RIGHT DIV */
 .card-main{  
   margin-left: 20px;

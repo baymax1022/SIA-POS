@@ -24,6 +24,23 @@
                     $d = json_decode(base64_decode(file_get_contents("php://input")));
                     echo json_encode($gm->insert("tbl_preorder",$d), JSON_PRETTY_PRINT);
                 break;
+				case 'addPreOrder':
+                    $d = json_decode(base64_decode(file_get_contents("php://input")));
+                    echo json_encode($gm->insert("tbl_order",$d), JSON_PRETTY_PRINT);
+                break;
+				case 'getProd':
+                    $d = json_decode(base64_decode(file_get_contents("php://input")));
+                    echo json_encode($gm->insert("tbl_product",$d), JSON_PRETTY_PRINT);
+                break;
+				case 'prod':                   
+					if(count($req)>1) {                        
+						echo json_encode($get->pullProduct($req[1]), JSON_PRETTY_PRINT);                   
+					} 
+				   else
+				   {                        
+						echo json_encode($get->pullProduct(null), JSON_PRETTY_PRINT); 
+				   }                
+						break;
 				case 'order':                   
 					 if(count($req)>1) {                        
 						 echo json_encode($get->pullOrder($req[1]), JSON_PRETTY_PRINT);                   
@@ -33,9 +50,23 @@
 						 echo json_encode($get->pullOrder(null), JSON_PRETTY_PRINT); 
 					}                
 						 break;
+				case 'pre':                   
+					 if(count($req)>1) {                        
+						 echo json_encode($get->pullPre($req[1]), JSON_PRETTY_PRINT);                   
+					 } 
+					else
+					{                        
+						 echo json_encode($get->pullPre(null), JSON_PRETTY_PRINT); 
+					}                
+						 break;
+						 
 				 case 'delOrder': 
 					    $d = json_decode(base64_decode(file_get_contents("php://input"))); 
 						     echo json_encode($post->delOrder($d), JSON_PRETTY_PRINT);           
+							break;
+				 case 'delPre': 
+					    $d = json_decode(base64_decode(file_get_contents("php://input"))); 
+						     echo json_encode($post->delPre($d), JSON_PRETTY_PRINT);           
 							break;
 			}
 		break;

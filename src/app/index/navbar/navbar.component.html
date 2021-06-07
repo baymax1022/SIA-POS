@@ -84,49 +84,76 @@
     </div>
   
     <div class="menu" style="display: flex;">
-      <mat-card>
-        <p> Product Name  {{ cardInfo.product_name }}</p>
-        <p> Quantity  {{ cardInfo.quantity }}</p>
-        <p> Price  {{ cardInfo.price }}</p>
-      </mat-card>
-      <br>
-      <br>
-      <label class="menu-title">Starters</label>
-      <br>
-      <br>
-      <mat-tab-group>
-        <mat-tab label="For Starters">  
-          <div class="menu-container" style="display: inline-flex"*ngFor="let products of products" >
-              <mat-card style="width: 100px; text-align: center;" (click)="addOrder(products)">
-                  <img src="{{ products.img }}" alt="img" style="width: 200px; height: 200px; object-fit: flex;">
-                  <p style="display: none;">{{ products.title }}</p><p style="display: none;">{{ products.subtitle }}</p><p style="display: none;">{{ products.price }}</p> </mat-card> 
-       
-         </div> 
-        </mat-tab>
-        <mat-tab label="Soup For The Soul">  
-          <div class="menu-container" style="display: inline-flex"*ngFor="let products of products" >
-              <mat-card style="width: 100px; text-align: center;" (click)="addOrder(products)">
-                  <img src="{{ products.img }}" alt="img" style="width: 200px; height: 200px; object-fit: flex;">
-                  <p style="display: none;">{{ products.title }}</p><p style="display: none;">{{ products.subtitle }}</p><p style="display: none;">{{ products.price }}</p> </mat-card> 
-       
-         </div> 
-        </mat-tab>
-        <mat-tab label="Oodles Of Noodles">  
-          <div class="menu-container" style="display: inline-flex"*ngFor="let products of products" >
-              <mat-card style="width: 100px; text-align: center;" (click)="addOrder(products)">
-                  <img src="{{ products.img }}" alt="img" style="width: 100px; height: 200px; object-fit: flex;">
-                  <p style="display: none;">{{ products.title }}</p><p style="display: none;">{{ products.subtitle }}</p><p style="display: none;">{{ products.price }}</p> </mat-card> 
-       
-         </div> 
-        </mat-tab>
-        <mat-tab label="From The Grill">  
-          <div class="menu-container" style="display: inline-flex"*ngFor="let products of products" >
-              <mat-card style="width: 100px; text-align: center;" (click)="addOrder(products)">
-                  <img src="{{ products.img }}" alt="img" style="width: 200px; height: 200px; object-fit: flex;">
-                  <p style="display: none;">{{ products.title }}</p><p style="display: none;">{{ products.subtitle }}</p><p style="display: none;">{{ products.price }}</p> </mat-card> 
-       
-         </div> 
+      <mat-card >
+        <table>
+          <th >OrderNo.</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Actions</th>
+        
+         <tr *ngFor="let pre of preOrder">
          
+          <td>
+            {{ pre.order_ID }}
+          </td>
+          <td>
+            {{pre.product_name}}
+          </td>
+          <td> 
+            {{pre.quantity}}
+          </td>
+          <td> 
+            {{pre.price}}
+          </td>
+          <td >
+          
+            <button class="card-delete-button" (click)="delPre(pre.order_ID);"><i class="fas fa-trash-alt"></i>&nbsp; Delete</button> 
+          </td>
+          
+        </tr>
+     </table>
+       <!--  <mat-list role="list" *ngFor="let pre of preOrder" >
+          <mat-list-item role="listitem">{{ pre.product_name }} {{ pre.price }} <button (click)="delPre(pre.order_ID);"> Click Me </button> </mat-list-item>
+        </mat-list> -->
+        
+      </mat-card>
+     
+      <mat-tab-group >
+        <mat-tab label="For Starters" >  
+          <div class="menu-container" style="display: inline-flex"*ngFor="let product of product" >
+              <mat-card style="width: 100px; text-align: center;" (click)="addPreOrder(product)" *ngIf="product.product_type == 'For Starters'">
+                <p> {{product.product_name}}</p>
+                  <p style="display: none;">{{ product.product_name }}</p><p style="display: none;">{{ product.product_name }}</p><p style="display: none;">{{ products.product_name }}</p> </mat-card> 
+       
+         </div> 
+        </mat-tab>
+       
+        <mat-tab label="From The Grill">  
+          <div class="menu-container" style="display: inline-flex"*ngFor="let product of product" >
+              <mat-card style="width: 100px; text-align: center;" (click)="addPreOrder(product)" *ngIf="product.product_type == 'From The Grill'">
+                <p> {{product.product_name}}</p>
+                  <p style="display: none;">{{ product.product_name }}</p><p style="display: none;">{{ product.product_name }}</p><p style="display: none;">{{ products.product_name }}</p> </mat-card> 
+       
+         </div> 
+        </mat-tab>
+
+        <mat-tab label="Oodles Of Noodles">  
+          <div class="menu-container" style="display: inline-flex"*ngFor="let product of product" >
+              <mat-card style="width: 100px; text-align: center;" (click)="addPreOrder(product)" *ngIf="product.product_type == 'Oodles Of Noodles'">
+                <p> {{product.product_name}}</p>
+                  <p style="display: none;">{{ product.product_name }}</p><p style="display: none;">{{ product.product_name }}</p><p style="display: none;">{{ products.product_name }}</p> </mat-card> 
+       
+         </div> 
+        </mat-tab>
+
+        <mat-tab label="Soup For The Soul">  
+          <div class="menu-container" style="display: inline-flex"*ngFor="let product of product" >
+              <mat-card style="width: 100px; text-align: center;" (click)="addPreOrder(product)" *ngIf="product.product_type == 'Soup For The Soul'">
+                <p> {{product.product_name}}</p>
+                  <p style="display: none;">{{ product.product_name }}</p><p style="display: none;">{{ product.product_name }}</p><p style="display: none;">{{ products.product_name }}</p> </mat-card> 
+       
+         </div> 
         </mat-tab>
         
       </mat-tab-group>
@@ -134,7 +161,7 @@
     </div>
   
     <br>
-    
+    <input type="text"  placeholder="Insert Quantity" readonly> 
     <input type="number" [(ngModel)]="inputText" placeholder="Insert Quantity"> 
   <div class="btn2">
     

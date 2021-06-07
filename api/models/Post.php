@@ -11,7 +11,27 @@ class Post{
     }
 
 // ADD PRODUCT
-    
+
+public function addPreOrder($data) {
+
+    $code = 401;
+    $payload = null;
+    $remarks = "failed";
+    $message = "Unable to retrieve data";
+    $orderInfo = $data->orderInfo;
+
+    $res = $this->gm->insert('tbl_order', $orderInfo);
+
+    if($res['code']==200) {
+        $code = 200;
+        $payload = $res['data'];
+        $remarks = "success";
+        $message = "Successfully retrieved data";
+        
+    }
+    return $this->gm->sendPayload($payload, $remarks, $message, $code);
+  
+}
 //ADD TO CART
     public function addOrder($data) {
 
@@ -33,6 +53,27 @@ class Post{
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
       
     }
+    public function addProduct($data) {
+
+        $code = 401;
+        $payload = null;
+        $remarks = "failed";
+        $message = "Unable to retrieve data";
+        $productInfo = $data->productInfo;
+
+        $res = $this->gm->insert('tbl_products', $productInfo);
+
+        if($res['code']==200) {
+            $code = 200;
+            $payload = $res['data'];
+            $remarks = "success";
+            $message = "Successfully retrieved data";
+            
+        }
+        return $this->gm->sendPayload($payload, $remarks, $message, $code);
+      
+    }
+
 
     public function delOrder($d) { 
         $data = $d; 
@@ -50,6 +91,23 @@ class Post{
              $message = $res['errmsg'];        
             } 
         }
+
+        public function delPre($d) { 
+            $data = $d; 
+            $order_ID = $data->order_ID;
+             $res = $this->gm->delete('tbl_order', $data, "order_ID = '$order_ID'"); if ($res['code'] == 200) 
+             {  
+                $payload = $res['data'];            
+                $remarks = "success";            
+                $message = "Successfully retrieved requested data";        
+            } 
+            else
+             {            
+                 $payload = null;            
+                 $remarks = "failed";            
+                 $message = $res['errmsg'];        
+                } 
+            }
 
     //CHECK OUT
     

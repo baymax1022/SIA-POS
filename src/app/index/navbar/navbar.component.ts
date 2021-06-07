@@ -36,6 +36,8 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.pullOrder();
+    this.pullPreOrder();
+    this.pullProduct();
   }
 
   deleteBtn(){
@@ -95,6 +97,35 @@ export class NavbarComponent implements OnInit {
     console.log(this.cardInfo);
     
   }
+  //addPreorder
+  orderInfo:any={};
+
+  addPreOrder = (product:any) =>{
+    this.orderInfo.product_name = product.product_name ;
+    this.orderInfo.quantity = product.product_quantity * this.inputText;
+    this.orderInfo.price = product.product_price * this.inputText;
+    
+     this.q = this.inputText;
+
+   
+      this.ds.sendApiRequest("addPreOrder", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => {
+    this.pullPreOrder();
+    }); 
+    console.log(this.orderInfo);
+    
+  }
+  //getProduct
+  productInfo: any={};
+  getProduct  () {
+    
+
+   /* 
+      this.ds.sendApiRequest("addPreOrder", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => {
+    this.pullPreOrder();
+    });  */
+    console.log(this.productInfo);
+    
+  }
   //pull function order
   order:any;
   pullOrder() 
@@ -104,7 +135,23 @@ export class NavbarComponent implements OnInit {
     
   }
 
+
+  preOrder:any = {};
+  pullPreOrder() 
+  { 
+    this.ds.sendApiRequest("pre", null).subscribe((data: { payload: any; }) => { this.preOrder = data.payload; 
+    })
+    console.log(this.preOrder);
+  }
   
+
+  product:any = {};
+  pullProduct() 
+  { 
+    this.ds.sendApiRequest("prod", null).subscribe((data: { payload: any; }) => { this.product = data.payload; 
+    })
+    console.log(this.product);
+  }
 //delete function order
 async delOrder(e: any)
  { 
@@ -127,4 +174,33 @@ async delOrder(e: any)
       } 
     }) 
   }
+
+  async delPre(e: any)
+  { 
+    this.orderInfo.order_ID = e; 
+    Swal.fire({ title: 'Remove item?', 
+     icon: 'warning', 
+     showCancelButton: true, 
+     confirmButtonColor: '#3085d6', 
+     cancelButtonColor: '#d33', 
+     confirmButtonText: 'Yes' 
+   }).then((result) => 
+   { 
+     if (result.isConfirmed) 
+     { 
+       this.ds.sendApiRequest("delPre", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => 
+         { 
+           this.pullPreOrder(); 
+         }); 
+         Swal.fire( 'Deleted!', 'Item has been removed.', 'success' ) 
+       } 
+     }) 
+   }
+
+
+   getTotal() {
+     
+    
+
+   }
 }
