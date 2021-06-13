@@ -15,7 +15,8 @@ export class NavbarComponent implements OnInit {
   Invoice:boolean = false;
   edit: boolean = false; 
   view: boolean = false;
-
+ 
+  
   
 
   showFiller = false;
@@ -30,15 +31,13 @@ export class NavbarComponent implements OnInit {
     this.Invoice = true;
     this.Order = false;
   }
-  openDialog() {
-    this.dialog.open(OrderComponent);
-  }
+
+
 
   ngOnInit() {
     this.pullProduct();
     this.pullPreOrder();
     this.pullOrder();
-    this.getTotal();
   }
 
   deleteBtn(){
@@ -75,12 +74,7 @@ export class NavbarComponent implements OnInit {
     this.edit = false;
   }
 //adding function to database
-  products:any=[
-    {title:'card1',subtitle:'1',price:20, img:'../../assets/faveIcon/bihon.jpg'},
-    {title:'card2',subtitle:'1',price:3, img:'../../assets/faveIcon/bulaklak.jpg'},
-    {title:'card3',subtitle:'1',price:2, img:'../../assets/faveIcon/dynamite.jpg'}
-    
-  ]
+  products:any={};
   cardInfo:any={};
   inputText:any;
   q:any;
@@ -90,8 +84,6 @@ export class NavbarComponent implements OnInit {
     this.cardInfo.quantity = products.subtitle * this.inputText;
     this.cardInfo.price = products.price * this.inputText;
      this.q = this.inputText;
-
-   
      /*  this.ds.sendApiRequest("addOrder", JSON.parse(JSON.stringify(this.cardInfo))).subscribe((data: any) => {
     this.pullOrder();
     });  */
@@ -100,34 +92,21 @@ export class NavbarComponent implements OnInit {
   }
   //addPreorder
   orderInfo:any={};
-
   addPreOrder = (product:any) =>{
     this.orderInfo.product_name = product.product_name ;
     this.orderInfo.quantity = product.product_quantity * this.inputText;
     this.orderInfo.price = product.product_price * this.inputText;
     
      this.q = this.inputText;
-
-   
-      this.ds.sendApiRequest("addPreOrder", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => {
-        this.pullPreOrder();
-    }); 
+    //   this.ds.sendApiRequest("addPreOrder", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => {
+    //     this.pullPreOrder();
+    // }); 
     
     console.log(this.orderInfo);
 
   }
-  //getProduct
-  productInfo: any={};
-  getProduct  () {
-    
-
-   /* 
-      this.ds.sendApiRequest("addPreOrder", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => {
-    this.pullPreOrder();
-    });  */
-    console.log(this.productInfo);
-    
-  }
+  
+  
   //pull function order
   order:any;
   pullOrder() 
@@ -146,7 +125,7 @@ export class NavbarComponent implements OnInit {
     })
     
     console.log(this.preOrder);
-    this.getTotal();
+    
   }
   
 

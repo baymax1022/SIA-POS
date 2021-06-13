@@ -56,8 +56,7 @@
 .card-main {
   display: flex;
   justify-content: center;
-  
- 
+  height: 80%;
 }
 .logo1{
   margin-right: 500px;
@@ -146,12 +145,13 @@ td{
   border-radius: 20px;
   margin-right: 10px;
   font-size: 17px;
+  padding: 8px;
 }
 
 .menu button:hover {
   background-color: #EDECDF;
   cursor: pointer;
-  padding: 5px;
+  padding: 9px;
 }
 .menu-container mat-card:hover{
   padding-right: 115px;
@@ -172,4 +172,8 @@ table{
   width: 100%;
   padding: 20px;
   border-collapse: collapse;
+}
+.input input{
+  border-radius: 2px;
+  border-style: inset;
 }
