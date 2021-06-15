@@ -52,21 +52,113 @@
 </div>
 
 <!--order table -->
-<div class="card-main overflow-auto" *ngIf="Order" >
+<div class="card-main" *ngIf="Order" >
   <div class="list-label1">
     
     <div class="search-input">
       <label for="search"><i class="fas fa-search"></i>&nbsp; <input id="search" name="search" placeholder="search"></label>
     </div>
+
     <h1 class="logo1"> Cocolime</h1>
     <h1 class="logo2"> Customer's Order</h1>
-    <div class="content-container">
-      <mat-form-field appearance="fill">
-        <mat-label >Order No.</mat-label>
-         <input matInput readonly value="">
-      </mat-form-field>
+    
+    
+    <div class="menu" style="display: flex; margin-right: 20px; width: 100%; height: 75%;">
+    
+      <mat-card style="width: 50%; height: 100%; "  class="card-main example">
+        <table>
+        
+          
+        
+         <tr *ngFor="let pre of preOrder" ><mat-accordion >
+          <mat-expansion-panel hideToggle style="margin-bottom: 10px ; ">
+            <mat-expansion-panel-header >
+              <mat-panel-title> 
+                <td> 
+                  {{pre.quantity}}
+                </td>
+             
+                <td style="margin-left: 20px;">
+                  {{pre.product_name}}
+                </td>
+               
+               <td style="margin-left: auto; margin-right: 0;"> 
+                 
+                   ₱{{pre.price}}
+                </td> 
 
-      <mat-form-field appearance="fill">
+              
+              </mat-panel-title>
+              
+            </mat-expansion-panel-header>
+            <mat-grid-list cols="3" rowHeight="2:1">
+
+              <mat-grid-tile>
+                Qty: {{pre.quantity}}
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                Price: ₱{{pre.price}}
+              </mat-grid-tile>
+              <mat-grid-tile>
+                Discount:
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="2" >
+                4</mat-grid-tile>
+              <mat-grid-tile> <mat-icon style="color: red; cursor: pointer;" (click)="delPre(pre.order_ID);">delete</mat-icon>&nbsp;</mat-grid-tile>
+            </mat-grid-list>
+          </mat-expansion-panel>
+         
+        </mat-accordion>
+         
+         
+        
+        </tr>
+       <div class="sticky" >
+         <p class="stickyCard"> 
+           Add Discount
+         </p>
+        <p class="stickyCard"   >
+          Total:  <input matInput disabled [(ngModel)]="total" style="color: black; font-size: medium; text-align: right;"> 
+        </p>
+        <p class="stickyCard">
+          Pay
+        </p>
+        <mat-grid-list cols="4" rowHeight="2:1">
+
+          <mat-grid-tile>
+            Qty: 
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            Price: ₱
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <button (click)="getTotal()" style="padding: 5px; ">Total</button>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            Discount:
+          </mat-grid-tile>
+         
+        </mat-grid-list>
+         </div>
+     </table>
+   
+    </mat-card>
+    
+       <!--  <mat-list role="list" *ngFor="let pre of preOrder" >
+          <mat-list-item role="listitem">{{ pre.product_name }} {{ pre.price }} <button (click)="delPre(pre.order_ID);"> Click Me </button> </mat-list-item>
+        </mat-list> --> 
+        <div class="input" style="display: block;">
+          <mat-form-field>
+          <p>Total Amount:</p>
+          <br>
+          <br>
+          <p>Insert Quantity:</p> <button (click)="countUp()"><mat-icon>add</mat-icon></button> <button (click)="countDown()"><mat-icon>remove</mat-icon></button>
+          <input matInput type="number" [(ngModel)]="inputText" style="color: black; font-size: medium;" disabled>
+        </mat-form-field>
+        
+      <mat-form-field >
         <mat-label>Payment Method</mat-label>
         <mat-select>
           <mat-option value="one">Cash</mat-option>
@@ -74,106 +166,70 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field >
         <mat-label>Dining</mat-label>
         <mat-select>
           <mat-option value="one">Dine in</mat-option>
           <mat-option value="two">Take out</mat-option>
         </mat-select>
       </mat-form-field>
-    </div>
-  
-    <div class="menu" style="display: flex; margin-right: 20px; width: 100%; height: 75%;">
-    
-      <mat-card style="width: 30%;" class="card-main overflow-auto">
-        <table>
-          <th >OrderNo.</th>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th>Price</th>
-          <th>Actions</th>
-        
-         <tr *ngFor="let pre of preOrder">
-         
-          <td>
-            {{ pre.order_ID }}
-          </td>
-          <td>
-            {{pre.product_name}}
-          </td>
-          <td> 
-            {{pre.quantity}}
-          </td>
-          <td> 
-            {{pre.price}}
-          </td>
-          <td >
-          
-            <button class="card-delete-button" (click)="delPre(pre.order_ID);" style="padding: 4px;"><mat-icon>delete</mat-icon>&nbsp;</button> 
-          </td>
-          
-        </tr>
-     </table>
-    </mat-card>
-       <!--  <mat-list role="list" *ngFor="let pre of preOrder" >
-          <mat-list-item role="listitem">{{ pre.product_name }} {{ pre.price }} <button (click)="delPre(pre.order_ID);"> Click Me </button> </mat-list-item>
-        </mat-list> --> 
-        <div class="input" style="display: block;">
-          <mat-form-field>
-          <p>Total Amount:</p><input matInput disabled [(ngModel)]="total" style="color: black; font-size: medium;"> 
-          <br>
-          <br>
-          <p>Insert Quantity:</p> <button (click)="countUp()"><mat-icon>add</mat-icon></button> <button (click)="countDown()"><mat-icon>remove</mat-icon></button>
-          <input matInput type="number" [(ngModel)]="inputText" style="color: black; font-size: medium;" disabled>
-        </mat-form-field>
-        <br>
+      <br>
           <button (click)="getTotal()" style="padding: 5px; margin-left: 60px;">Total</button>
           <button (click)="addOrder(products)" style="padding: 5px;">Submit</button>
         </div> 
     
     
      <!-- Menu Table-->
-      <mat-tab-group style="margin-left: 20px; width: 50%;">
+      <mat-tab-group style="width: 50%;">
         <mat-tab label="For Starters" >  
+         
+          <ng-template mat-tab-label>
+            <img src="assets/faveIcon/SpringR.png" style="height: 60px; width: 70px;">
+            <span>For Starters</span>
+        </ng-template>
           <div class="menu-container" style="display: inline-flex; margin-bottom: 10px;"*ngFor="let product of product" >
               <mat-card style="width: 100px; height: 50px; text-align: center; margin-top: 10px;" (click)="addPreOrder(product)" *ngIf="product.product_type == 'For Starters'">
                 <p> {{product.product_name}}</p>
-                <p style="display: none;">{{ product.product_name }}</p>
-                <p style="display: none;">{{ product.product_name }}</p>
-                <p style="display: none;">{{ products.product_name }}</p>
+            
                 </mat-card>
          </div> 
         </mat-tab>
        
         <mat-tab label="From The Grill">  
+          <ng-template mat-tab-label>
+            <img src="assets/faveIcon/Grill.png" style="height: 60px; width: 70px;">
+            <span>From The Grill</span>
+        </ng-template>
           <div class="menu-container" style="display: inline-flex; margin-bottom: 10px;"*ngFor="let product of product" >
               <mat-card style="width: 100px; height: 50px; text-align: center; margin-top: 10px;" (click)="addPreOrder(product)" *ngIf="product.product_type == 'From The Grill'">
                 <p> {{product.product_name}}</p>
-                  <p style="display: none;">{{ product.product_name }}</p>
-                  <p style="display: none;">{{ product.product_name }}</p>
-                  <p style="display: none;">{{ products.product_name }}</p> 
+                  
                 </mat-card> 
          </div> 
         </mat-tab>
 
         <mat-tab label="Oodles Of Noodles">  
+          <ng-template mat-tab-label>
+            <img src="assets/faveIcon/Noodles.png" >
+            <span>For Starters</span>
+        </ng-template>
           <div class="menu-container" style="display: inline-flex; margin-bottom: 10px;"*ngFor="let product of product" >
               <mat-card style="width: 100px; height: 50px; text-align: center; margin-top: 10px;" (click)="addPreOrder(product)" *ngIf="product.product_type == 'Oodles Of Noodles'">
                 <p> {{product.product_name}}</p>
-                  <p style="display: none;">{{ product.product_name }}</p>
-                  <p style="display: none;">{{ product.product_name }}</p>
-                  <p style="display: none;">{{ products.product_name }}</p> 
+                  
                 </mat-card> 
          </div> 
         </mat-tab>
 
         <mat-tab label="Soup For The Soul">  
+          <ng-template mat-tab-label>
+            <img src="assets/faveIcon/Soup.png" style="height: 65px; width: 80px;">
+            <span>Soup For The Soul</span>
+        </ng-template>
           <div class="menu-container" style="display: inline-flex; margin-bottom: 10px;"*ngFor="let product of product" >
               <mat-card style="width: 100px; height: 50px; text-align: center; margin-top: 10px;" (click)="addPreOrder(product)" *ngIf="product.product_type == 'Soup For The Soul'">
                 <p> {{product.product_name}}</p>
-                  <p style="display: none;">{{ product.product_name }}</p>
-                  <p style="display: none;">{{ product.product_name }}</p>
-                  <p style="display: none;">{{ products.product_name }}</p> 
+                
                 </mat-card> 
          </div> 
         </mat-tab>

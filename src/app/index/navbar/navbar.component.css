@@ -1,3 +1,4 @@
+
 body{
   overflow: hidden;
 }
@@ -65,11 +66,12 @@ body{
   margin-right: 500px;
   font-family: 'Pacifico', cursive;
   font-size: 50px;
+  text-align: center;
 }
 
 .logo2{
   margin-right: 500px;
-
+  text-align: center;
 }
 h1{
   text-align: center;
@@ -132,13 +134,6 @@ mat-form-field{
   cursor: pointer;
   padding: 5px;
 }
-
-
-td{
-
-  text-align: center;
-}
-
 .menu button {
   border: none;
   background-color: white;
@@ -188,4 +183,47 @@ table{
 }
 .input button:hover{
   padding: 2px;
+}
+.right {
+  text-align: right;
+  margin-right: 1em;
+}
+mat-grid-tile {
+  border: 1px solid #d3d3d3;
+}
+.example {
+  
+  overflow-y: scroll; /* Add the ability to scroll */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.example::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.example-container {
+  height: 270px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+
+.sticky {
+  width: auto;
+  position: sticky;
+  bottom: 0;
+  background-color: #FFFFFF;
+  display: block;
+  
+}
+.stickyCard{
+  font-family: 'Mukta', sans-serif;
 }

@@ -2,7 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;500&display=swap');
 /* GLOBAL */
 html, body {
     height: 100%; }
@@ -122,4 +122,8 @@ a:hover{
 }
 .td-avail{
   color: #289672;
+}
+td {
+  font-family: 'Mukta', sans-serif;
+  
 }

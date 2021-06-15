@@ -60,6 +60,7 @@ import { TestingComponent } from './testing/testing.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './index/dashboard/dashboard.component';
 import { OrderComponent } from './index/order/order.component';
+import { POSComponent } from './pos/pos.component';
 
 
 
@@ -73,7 +74,8 @@ import { OrderComponent } from './index/order/order.component';
     HeaderComponent,
     TestingComponent,
     DashboardComponent,
-    OrderComponent   
+    OrderComponent,
+    POSComponent   
   ],
   imports: [
     BrowserModule,

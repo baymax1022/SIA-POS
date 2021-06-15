@@ -4,13 +4,17 @@ import {MatDialog} from '@angular/material/dialog';
 import { DataService } from '../../services/data.service';
 import Swal from 'sweetalert2'
 
+
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+ 
 
+  panelOpenState = false;
   Order:boolean = true;
   Invoice:boolean = false;
   edit: boolean = false; 
@@ -20,6 +24,8 @@ export class NavbarComponent implements OnInit {
   
 
   showFiller = false;
+
+   
 
   constructor(public dialog: MatDialog,  private ds: DataService) { }
 
@@ -206,4 +212,7 @@ async delOrder(e: any)
      else
     this.inputText--;
   }
+ 
 }
+
+
