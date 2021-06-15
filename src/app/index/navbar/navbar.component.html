@@ -14,13 +14,13 @@
       <div class="print-container">
           <table class="head">
             <thead>
-              <tr class="thead">
+              <tr class="thead" >
 
-                <th>OrderNo.</th>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Actions</th>
+                <th id="th">OrderNo.</th>
+                <th id="th">Product</th>
+                <th id="th">Quantity</th>
+                <th id="th">Price</th>
+                <th id="th">Actions</th>
 
               </tr>
             </thead>
@@ -29,16 +29,16 @@
             <tbody>
               <tr *ngFor="let order of order">
 
-                <td>
+                <td class="td" >
                   {{ order.prodID }}
                 </td>
-                <td>
+                <td class="td">
                   {{order.product_name}}
                 </td>
-                <td> 
+                <td class="td"> 
                   {{order.quantity}}
                 </td>
-                <td> 
+                <td class="td"> 
                   {{order.price}}
                 </td>
                 <td>
@@ -173,21 +173,7 @@
           <input matInput type="number" [(ngModel)]="inputText" style="color: black; font-size: medium;" disabled>
         </mat-form-field>
         
-      <mat-form-field >
-        <mat-label>Payment Method</mat-label>
-        <mat-select>
-          <mat-option value="one">Cash</mat-option>
-          <mat-option value="two">Card</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field >
-        <mat-label>Dining</mat-label>
-        <mat-select>
-          <mat-option value="one">Dine in</mat-option>
-          <mat-option value="two">Take out</mat-option>
-        </mat-select>
-      </mat-form-field>
+    
       <br>
           <button (click)="getTotal()" style="padding: 5px; margin-left: 60px;">Total</button>
           <button (click)="addOrder(products)" style="padding: 5px;">Submit</button>

@@ -49,14 +49,13 @@ body{
 
 } */
 
-th, td {
+#th, .td {
   text-align: center;
   padding: 8px;
 }
 
-tr:nth-child(even){background-color: rgba(248, 233, 175, 0.5)}
 
-th {
+#th {
   background-color: rgb( 173, 156, 81, .5);
   color: rgb(99, 96, 96);
 }
@@ -191,14 +190,6 @@ mat-form-field{
   padding: 5px;
 }
 
-
-
-
-td{
-
-  text-align: center;
-}
-
 .menu button {
   border: none;
   background-color: white;
@@ -283,8 +274,8 @@ table {
 
 .sticky {
   width: auto;
-  position: sticky;
-  bottom: 0;
+  position: static;
+  bottom: -20px;
   background-color: #FFFFFF;
   display: block;
   
