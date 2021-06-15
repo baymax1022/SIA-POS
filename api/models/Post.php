@@ -108,23 +108,7 @@ public function addPreOrder($data) {
                  $message = $res['errmsg'];        
                 } 
             }
-        function clearOrder($dt) {
-            $payload = $dt;
 
-            $sql = "TRUNCATE FROM 'tbl_order' "; 
-            // $this->sql = "UPDATE inventory_tb SET is_Archive = 1 WHERE item_id =$dt->item_id";
-
-            $this->conn->query($this->sql);
-            
-            $this->data = $payload;
-
-            return array(
-                'status'=>$this->status,
-                'payload'=>$this->data,
-                'prepared_by'=>'Inventory Admin',
-                'timestamp'=>date('D M j, Y h:i:s e')
-            );
-        }
 
 
     //CHECK OUT

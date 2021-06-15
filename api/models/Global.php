@@ -7,6 +7,28 @@
 		}
 
 		
+
+		public function select_pre($table, $filter_data) {
+
+			$sql = "SELECT * FROM tbl_order";
+		
+			if($filter_data != null){
+				$sql .=" WHERE id = $filter_data ";
+			}
+		
+			$data = array(); $code = 0; $msg= ""; $remarks = "";
+			try {
+				if ($res = $this->pdo->query($sql)->fetchAll()) {
+					foreach ($res as $rec) { array_push($data, $rec);}
+					$res = null; $code = 200; $msg = "Successfully retrieved the requested records"; $remarks = "success";
+				}
+			} catch (\PDOException $e) {
+				$msg = $e->getMessage(); $code = 401; $remarks = "failed";
+			}
+			return $this->sendPayload($data, $remarks, $msg, $code);
+		}
+
+
 		// READ
 		public function generalQuery($sql, $err) {
 			$data = array();
@@ -125,7 +147,32 @@
 			return array("code"=>$code, "errmsg"=>$errmsg);
 		}
 
+
+				//DELETE
+				public function clearOrder($dt){
 		
+					$sql = "DELETE FROM tbl_order";
+		
+				
+					$data = array(); $code = 0; $errmsg= ""; $remarks = "";
+					try {
+				
+						if ($res = $this->pdo->query($sql)->fetchAll()) {
+							foreach ($res as $rec) { array_push($dt, $rec);}
+							$res = null; $code = 200; $msg = "Successfully deleted feedback"; $remarks = "success";
+							return array("code"=>200, "remarks"=>"success");
+						}
+					} catch (\PDOException $e) {
+						$errmsg = $e->getMessage();
+						$code = 403;
+					}
+					
+					return array("code"=>$code, "errmsg"=>$errmsg);
+				}
+				
+
+
+
 
 		//PAYLOAD
 

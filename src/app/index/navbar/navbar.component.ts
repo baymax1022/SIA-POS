@@ -43,8 +43,10 @@ export class NavbarComponent implements OnInit {
     this.pullProduct();
     this.pullPreOrder();
     this.pullOrder();
+    this.getTotal();
   }
 
+  
   deleteBtn(){
     Swal.fire({
       title: 'Are you sure?',
@@ -98,6 +100,8 @@ export class NavbarComponent implements OnInit {
   //addPreorder
   orderInfo:any={};
   addPreOrder = (product:any) =>{
+
+
     if (this.inputText == 0){
     ("insert quantity");
     }
@@ -108,9 +112,14 @@ export class NavbarComponent implements OnInit {
     
      this.q = this.inputText;
       this.ds.sendApiRequest("addPreOrder", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => {
-        this.pullPreOrder();
+          if(data.remarks == "success"){
+            console.log(true)
+            this.pullPreOrder();
+
+          }
     }); 
-    
+
+    this.getTotal();
     console.log(this.orderInfo);
     }
   }
@@ -120,20 +129,22 @@ export class NavbarComponent implements OnInit {
   order:any;
   pullOrder() 
   { 
-    this.ds.sendApiRequest("order", null).subscribe((data: { payload: any; }) => { this.order = data.payload; 
+    this.ds.sendApiRequest("order", null).subscribe((data: any) => { this.order = data.payload; 
     })
     
   }
 
 
-  preOrder:any = {};
+  preOrder:any = [];
   pullPreOrder() 
   { 
-    this.ds.sendApiRequest("pre", null).subscribe((data: { payload: any; }) => { 
-      this.preOrder = data.payload; 
+    this.ds.sendApiRequest("pre", null).subscribe((data:any) =>{ 
+      this.preOrder = data.payload;
+      console.log(this.preOrder);
+      this.getTotal();
+
     })
-    
-    console.log(this.preOrder);
+
     
   }
   
@@ -141,9 +152,11 @@ export class NavbarComponent implements OnInit {
   product:any = {};
   pullProduct() 
   { 
-    this.ds.sendApiRequest("prod", null).subscribe((data: { payload: any; }) => { this.product = data.payload; 
+    this.ds.sendApiRequest("prod", null).subscribe( (data:any) =>{
+      this.product = data.payload; 
+      console.log(this.product);
     })
-    console.log(this.product);
+ 
   }
 //delete function order
 async delOrder(e: any)
@@ -201,10 +214,12 @@ async delOrder(e: any)
    getTotal() {
     this.total = 0;
     for (var i = 0; this.preOrder.length > i; i++){
+      console.log(i)
       console.log(this.preOrder[i].price);
       this.total = this.total + this.preOrder[i].price;
     }
 
+    console.log(this.preOrder.length)
     console.log(this.total);
 
    }

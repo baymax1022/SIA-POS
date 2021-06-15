@@ -20,6 +20,13 @@
 			
 
 			switch($req[0]) {
+				case 'pre':
+					if(count($req)>1){
+						echo json_encode($gm->select_pre('tbl_order'.$req[0], $req[1]),JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($gm->select_pre('tbl_order', null),JSON_PRETTY_PRINT);
+					}
+				break;
 				case 'addOrder':
                     $d = json_decode(base64_decode(file_get_contents("php://input")));
                     echo json_encode($gm->insert("tbl_preorder",$d), JSON_PRETTY_PRINT);
@@ -50,15 +57,6 @@
 						 echo json_encode($get->pullOrder(null), JSON_PRETTY_PRINT); 
 					}                
 						 break;
-				case 'pre':                   
-					 if(count($req)>1) {                        
-						 echo json_encode($get->pullPre($req[1]), JSON_PRETTY_PRINT);                   
-					 } 
-					else
-					{                        
-						 echo json_encode($get->pullPre(null), JSON_PRETTY_PRINT); 
-					}                
-						 break;
 						 
 				 case 'delOrder': 
 					    $d = json_decode(base64_decode(file_get_contents("php://input"))); 
@@ -70,7 +68,7 @@
 							break;
 				 case 'clearOrder':
 								$d = json_decode(base64_decode(file_get_contents("php://input")));
-								echo json_encode($post->clearOrder($d));
+								echo json_encode($gm->clearOrder($d));
 							break;
 			}
 		break;
