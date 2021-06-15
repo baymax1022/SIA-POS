@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { OrderComponent } from '../order/order.component';
 import {MatDialog} from '@angular/material/dialog';
 import { DataService } from '../../services/data.service';
+import { NgxPrintModule } from 'ngx-print';
 import Swal from 'sweetalert2'
 
 
@@ -25,9 +26,7 @@ export class NavbarComponent implements OnInit {
 
   showFiller = false;
 
-   
-
-  constructor(public dialog: MatDialog,  private ds: DataService) { }
+  constructor(public dialog: MatDialog,  private ds: DataService, private ngx: NgxPrintModule) { }
 
   openOrder(){
     this.Order= true;
@@ -90,9 +89,9 @@ export class NavbarComponent implements OnInit {
     this.cardInfo.quantity = products.subtitle * this.inputText;
     this.cardInfo.price = products.price * this.inputText;
      this.q = this.inputText;
-     /*  this.ds.sendApiRequest("addOrder", JSON.parse(JSON.stringify(this.cardInfo))).subscribe((data: any) => {
+     this.ds.sendApiRequest("addOrder", JSON.parse(JSON.stringify(this.cardInfo))).subscribe((data: any) => {
     this.pullOrder();
-    });  */
+    });
     console.log(this.cardInfo);
     
   }
