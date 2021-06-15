@@ -68,6 +68,10 @@
 					    $d = json_decode(base64_decode(file_get_contents("php://input"))); 
 						     echo json_encode($post->delPre($d), JSON_PRETTY_PRINT);           
 							break;
+				 case 'clearOrder':
+								$d = json_decode(base64_decode(file_get_contents("php://input")));
+								echo json_encode($post->clearOrder($d));
+							break;
 			}
 		break;
 

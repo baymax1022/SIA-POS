@@ -189,7 +189,14 @@ async delOrder(e: any)
        } 
      }) 
    }
-
+    clearOrder() {
+   
+    console.log(this.orderInfo);
+     this.ds.sendApiRequest("clearOrder", this.orderInfo).subscribe((res:any) => {
+    
+      this.pullPreOrder();
+  });
+  }
    total: number = 0;
    getTotal() {
     this.total = 0;

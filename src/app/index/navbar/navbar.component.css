@@ -274,7 +274,7 @@ table {
 
 .sticky {
   width: auto;
-  position: static;
+  position: sticky;
   bottom: -20px;
   background-color: #FFFFFF;
   display: block;
