@@ -9,7 +9,7 @@ body{
   padding: 0px !important;
   /* pls add shadows later */
 }
-#nav-sidebar-list {
+.nav-sidebar-list {
   width: 80%;
   border-style: none;
   padding-top: 50px !important;
@@ -42,6 +42,49 @@ body{
   padding-left: 20px;
   padding-top: 20px;
 }
+
+/* .head, th, td {
+  border: 1px solid rgb(168, 162, 162);
+
+} */
+
+th, td {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: rgba(248, 233, 175, 0.5)}
+
+th {
+  background-color: rgb( 173, 156, 81, .5);
+  color: rgb(99, 96, 96);
+}
+
+.head {
+  border-collapse: collapse;
+  width: 80%;
+  height: 20%;
+  margin-left: 10%;
+
+}
+
+.thead {
+  font-size: 18px;
+}
+
+.myInput {
+  margin-left: 10%;
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 75%;
+  font-size: 14px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid rgb( 173, 156, 81, .5);
+  margin-bottom: 12px;
+  margin-top: 50px;
+}
+
+
 
 .div-add-item button{ 
   float: left;
@@ -82,8 +125,19 @@ mat-form-field{
 
 .list-label1{
   width: 90%;
-  padding: 10px;
 }
+
+.print-container {
+  height: 70%;
+  overflow: auto;
+
+}
+
+.list-label2{
+  width: 90%;
+  padding: 70px;
+}
+
 .mat-sort-header-container {
   align-items: center;
 }
@@ -106,6 +160,7 @@ mat-form-field{
 }
 
 .div-print-item button{ 
+  font-size: 15px;
   float: right;
   padding: 15px;
   border: none;
@@ -114,9 +169,10 @@ mat-form-field{
   border-radius: 20px;
 }
 .div-print-item button:hover{
-  background-color: #EDECDF;
+  background-color: rgb( 173, 156, 81, .5);
   padding: 17px;
 }
+
 
 .btn2 button {
   border: none;
@@ -132,6 +188,8 @@ mat-form-field{
   cursor: pointer;
   padding: 5px;
 }
+
+
 
 
 td{
@@ -188,4 +246,17 @@ table{
 }
 .input button:hover{
   padding: 2px;
+}
+
+@media print {
+
+  .card-main, .nav-sidebar-list * {
+    visibility: hidden;
+  }
+
+  .print-container, .print-container * {
+    visibility: visible;
+  }
+
+      
 }

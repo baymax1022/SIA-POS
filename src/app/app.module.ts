@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxPrintModule } from 'ngx-print';
 
 //Compnents Imports
 
@@ -79,6 +80,7 @@ import { OrderComponent } from './index/order/order.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgxPrintModule,
 
     // Material Cons Imports
 
