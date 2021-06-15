@@ -1,3 +1,6 @@
+body{
+  overflow: hidden;
+}
 #nav-sidebar {
   float: left;
   width: 12%;
@@ -7,7 +10,7 @@
   /* pls add shadows later */
 }
 #nav-sidebar-list {
-  width: 100%;
+  width: 80%;
   border-style: none;
   padding-top: 50px !important;
   display: flex;
@@ -78,7 +81,6 @@ mat-form-field{
 }
 
 .list-label1{
-  
   width: 90%;
   padding: 10px;
 }
@@ -131,18 +133,17 @@ mat-form-field{
   padding: 5px;
 }
 
-th{
-  
-}
+
 td{
 
   text-align: center;
 }
+
 .menu button {
   border: none;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  border-radius: 20px;
+  border-radius: 10px;
   margin-right: 10px;
   font-size: 17px;
   padding: 8px;
@@ -173,7 +174,18 @@ table{
   padding: 20px;
   border-collapse: collapse;
 }
+.input{
+  align-items: center;
+}
 .input input{
   border-radius: 2px;
   border-style: inset;
+  
+}
+.input button{
+  margin-bottom: 10px;
+  padding: 1px;
+}
+.input button:hover{
+  padding: 2px;
 }

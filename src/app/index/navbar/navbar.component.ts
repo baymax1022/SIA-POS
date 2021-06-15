@@ -76,7 +76,7 @@ export class NavbarComponent implements OnInit {
 //adding function to database
   products:any={};
   cardInfo:any={};
-  inputText:any;
+  inputText: number = 1;;
   q:any;
  /*  @Input() title:string; */
   addOrder = (products:any) =>{
@@ -93,17 +93,21 @@ export class NavbarComponent implements OnInit {
   //addPreorder
   orderInfo:any={};
   addPreOrder = (product:any) =>{
+    if (this.inputText == 0){
+    ("insert quantity");
+    }
+    else {
     this.orderInfo.product_name = product.product_name ;
     this.orderInfo.quantity = product.product_quantity * this.inputText;
     this.orderInfo.price = product.product_price * this.inputText;
     
      this.q = this.inputText;
-    //   this.ds.sendApiRequest("addPreOrder", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => {
-    //     this.pullPreOrder();
-    // }); 
+      this.ds.sendApiRequest("addPreOrder", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => {
+        this.pullPreOrder();
+    }); 
     
     console.log(this.orderInfo);
-
+    }
   }
   
   
@@ -192,4 +196,14 @@ async delOrder(e: any)
     console.log(this.total);
 
    }
+   countUp(){
+     this.inputText++;
+   }
+   countDown(){
+     if (this.inputText == 1){
+       alert("invalid quantity")
+     }
+     else
+    this.inputText--;
+  }
 }

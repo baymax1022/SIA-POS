@@ -50,13 +50,6 @@
     </div>
   </div>
 </div>
-<!-- modal -->
-
-
-
-
-
-
 
 <!--order table -->
 <div class="card-main overflow-auto" *ngIf="Order" >
@@ -90,9 +83,9 @@
       </mat-form-field>
     </div>
   
-    <div class="menu" style="display: flex; margin-right: 20px;" >
+    <div class="menu" style="display: flex; margin-right: 20px; width: 100%; height: 75%;">
     
-      <mat-card >
+      <mat-card style="width: 30%;" class="card-main overflow-auto">
         <table>
           <th >OrderNo.</th>
           <th>Product</th>
@@ -116,33 +109,31 @@
           </td>
           <td >
           
-            <button class="card-delete-button" (click)="delPre(pre.order_ID);"><i class="fas fa-trash-alt"></i>&nbsp; Delete</button> 
+            <button class="card-delete-button" (click)="delPre(pre.order_ID);" style="padding: 4px;"><mat-icon>delete</mat-icon>&nbsp;</button> 
           </td>
           
         </tr>
      </table>
+    </mat-card>
        <!--  <mat-list role="list" *ngFor="let pre of preOrder" >
           <mat-list-item role="listitem">{{ pre.product_name }} {{ pre.price }} <button (click)="delPre(pre.order_ID);"> Click Me </button> </mat-list-item>
         </mat-list> --> 
-        <div class="input">
+        <div class="input" style="display: block;">
           <mat-form-field>
-          <input matInput disabled [(ngModel)]="total"> 
+          <input matInput disabled [(ngModel)]="total" style="color: black; font-size: medium;"> 
           <br>
           <br>
-          <input matInput type="number" [(ngModel)]="inputText" placeholder="Insert Quantity">
+          <p>Insert Quantity</p> <button (click)="countUp()"><mat-icon>add</mat-icon></button> <button (click)="countDown()"><mat-icon>remove</mat-icon></button>
+          <input matInput type="number" [(ngModel)]="inputText" style="color: black; font-size: medium;" disabled>
         </mat-form-field>
-        </div>
         <br>
-        <div class="btn2">
-          <button (click)="getTotal()" >Total</button>
-          <button (click)="addOrder(products)" >Submit</button>
-          <button>Show Orders</button>
-        
+          <button (click)="getTotal()" style="padding: 5px; margin-left: 60px;">Total</button>
+          <button (click)="addOrder(products)" style="padding: 5px;">Submit</button>
         </div> 
-      </mat-card>
     
-     
-      <mat-tab-group style="margin-left: 20px;">
+    
+     <!-- Menu Table-->
+      <mat-tab-group style="margin-left: 20px; width: 50%;">
         <mat-tab label="For Starters" >  
           <div class="menu-container" style="display: inline-flex; margin-bottom: 10px;"*ngFor="let product of product" >
               <mat-card style="width: 100px; height: 50px; text-align: center; margin-top: 10px;" (click)="addPreOrder(product)" *ngIf="product.product_type == 'For Starters'">
