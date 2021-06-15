@@ -120,10 +120,10 @@
         </mat-list> --> 
         <div class="input" style="display: block;">
           <mat-form-field>
-          <input matInput disabled [(ngModel)]="total" style="color: black; font-size: medium;"> 
+          <p>Total Amount:</p><input matInput disabled [(ngModel)]="total" style="color: black; font-size: medium;"> 
           <br>
           <br>
-          <p>Insert Quantity</p> <button (click)="countUp()"><mat-icon>add</mat-icon></button> <button (click)="countDown()"><mat-icon>remove</mat-icon></button>
+          <p>Insert Quantity:</p> <button (click)="countUp()"><mat-icon>add</mat-icon></button> <button (click)="countDown()"><mat-icon>remove</mat-icon></button>
           <input matInput type="number" [(ngModel)]="inputText" style="color: black; font-size: medium;" disabled>
         </mat-form-field>
         <br>
