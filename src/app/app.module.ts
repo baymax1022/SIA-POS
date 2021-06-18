@@ -6,11 +6,9 @@ import { NgxPrintModule } from 'ngx-print';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './index/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './login/login.component';
-import { HeaderComponent } from './index/header/header.component';
 import { FormsModule } from '@angular/forms';
 
 //Modules Import
@@ -59,23 +57,22 @@ import { MatTableModule } from '@angular/material/table';
 import { TestingComponent } from './testing/testing.component';
 // HTTP
 import { HttpClientModule } from '@angular/common/http';
-import { DashboardComponent } from './index/dashboard/dashboard.component';
-import { OrderComponent } from './index/order/order.component';
 import { POSComponent } from './pos/pos.component';
 
+import { OrderComponent } from './index/order/order.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
+
     IndexComponent,
     LoginComponent,
-    HeaderComponent,
-    TestingComponent,
-    DashboardComponent,
     OrderComponent,
+    TestingComponent,
+
+
     POSComponent   
   ],
   imports: [

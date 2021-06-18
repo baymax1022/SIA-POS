@@ -1,1 +1,160 @@
-<p>pos works!</p>
+
+
+       <!--       <div class="search-input">
+        <label for="search"><i class="fas fa-search"></i>&nbsp; <input id="search" name="search" placeholder="search"></label>
+      </div>
+  
+       -->
+<div class="pos">
+  <div class="pos-content">
+  <div class="leftpane">
+    <div class="orderContainer">
+      <table>
+          
+            
+          
+        <tr *ngFor="let pre of preOrder" ><mat-accordion >
+         <mat-expansion-panel hideToggle style="margin-bottom: 10px ; ">
+            <mat-expansion-panel-header >
+              <mat-panel-title> 
+                 <td> 
+                    {{pre.quantity}}
+                </td>
+               
+                  <td style="margin-left: 20px;">
+                    {{pre.product_name}}
+                  </td>
+                 
+                 <td style="margin-left: auto; margin-right: 0;"> 
+                   
+                     {{pre.price | currency : 'PHP': 'symbol-narrow'}}
+                  </td> 
+              </mat-panel-title>
+                
+            </mat-expansion-panel-header>
+              <mat-grid-list cols="3" rowHeight="2:1">
+  
+                <mat-grid-tile>
+                  Qty: {{pre.quantity}}
+                </mat-grid-tile>
+  
+                <mat-grid-tile>
+                  Price: {{pre.price | currency : 'PHP': 'symbol-narrow'}}
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  Discount:
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" >
+                  4</mat-grid-tile>
+                <mat-grid-tile> <mat-icon style="color: red; cursor: pointer;" (click)="delPre(pre.order_ID);">delete</mat-icon>&nbsp;</mat-grid-tile>
+              </mat-grid-list>
+            </mat-expansion-panel>
+           
+          </mat-accordion>
+       
+         </tr>
+        
+      </table>
+     
+    </div>
+      <div class="sticky" >
+        <mat-list>
+          <mat-list-item><button>Add Discount</button> </mat-list-item>
+          <mat-list-item > SubTotal <span [(ngModel)]="total" class="summary"> {{total | currency : 'PHP': 'symbol-narrow' : ''}}</span> </mat-list-item>
+          <mat-list-item> Total </mat-list-item>
+         </mat-list>
+        <mat-grid-list cols="4" rowHeight="2:1">
+
+         <mat-grid-tile>
+           Qty: 
+         </mat-grid-tile>
+
+          <mat-grid-tile>
+           Price: ₱
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <button (click)="getTotal()" style="padding: 5px; ">Total</button>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <button (click)="clearOrder()" style="padding: 5px;">Submit</button>
+          </mat-grid-tile>
+        
+        </mat-grid-list>
+      </div>
+  </div>
+ 
+    <!--   <div class="input" style="display: block;">
+        <mat-form-field>
+           <p>Total Amount:</p>
+           <br>
+           <br>
+           <p>Insert Quantity:</p> <button (click)="countUp()"><mat-icon>add</mat-icon></button> <button (click)="countDown()"><mat-icon>remove</mat-icon></button>
+            <input matInput type="number" [(ngModel)]="inputText" style="color: black; font-size: medium;" disabled>
+        </mat-form-field>
+      </div> 
+      
+        -->
+          
+      
+     
+       
+       <!-- Menu Table-->
+      <div class="rightpane">
+        <mat-tab-group mat-stretch-tabs class="example-stretched-tabs ">
+          <mat-tab label="For Starters" >  
+           
+            <ng-template mat-tab-label>
+              <img src="assets/faveIcon/SpringR.png" style="height: 60px; width: 70px;">
+              <span>For Starters</span>
+          </ng-template>
+            <div class="menu-container" style="display: inline-flex; margin-bottom: 10px;"*ngFor="let product of product" >
+                <mat-card style="width: 100px; height: 50px; text-align: center; margin-top: 10px; margin-left:20px; background-color: #FF5722; color: white;" (click)="addPreOrder(product)" *ngIf="product.product_type == 'For Starters'">
+                  <p> {{product.product_name}}</p>
+              
+                  </mat-card>
+           </div> 
+          </mat-tab>
+         
+          <mat-tab label="From The Grill">  
+            <ng-template mat-tab-label>
+              <img src="assets/faveIcon/Grill.png" style="height: 60px; width: 70px;">
+              <span>From The Grill</span>
+          </ng-template>
+            <div class="menu-container" style="display: inline-flex; margin-bottom: 10px;"*ngFor="let product of product" >
+                <mat-card style="width: 100px; height: 50px; text-align: center; margin-top: 10px; margin-left:20px; background-color: #00BCD4 ; color: white;" (click)="addPreOrder(product)" *ngIf="product.product_type == 'From The Grill'">
+                  <p> {{product.product_name}}</p>
+                    
+                  </mat-card> 
+           </div> 
+          </mat-tab>
+  
+          <mat-tab label="Oodles Of Noodles">  
+            <ng-template mat-tab-label>
+              <img src="assets/faveIcon/Noodles.png" >
+              <span>For Starters</span>
+          </ng-template>
+            <div class="menu-container" style="display: inline-flex; margin-bottom: 10px;"*ngFor="let product of product" >
+                <mat-card style="width: 100px; height: 50px; text-align: center; margin-top: 10px; margin-left:20px; background-color: #b3a783 ; color: white;" (click)="addPreOrder(product)" *ngIf="product.product_type == 'Oodles Of Noodles'">
+                  <p> {{product.product_name}}</p>
+                    
+                  </mat-card> 
+           </div> 
+          </mat-tab>
+  
+          <mat-tab label="Soup For The Soul">  
+            <ng-template mat-tab-label>
+              <img src="assets/faveIcon/Soup.png" style="height: 65px; width: 80px;">
+              <span>Soup For The Soul</span>
+          </ng-template>
+            <div class="menu-container" style="display: inline-flex; margin-bottom: 10px;"*ngFor="let product of product" >
+                <mat-card style="width: 100px; height: 50px; text-align: center; margin-top: 10px; margin-left:20px; background-color: #E91E63; color: white;" (click)="addPreOrder(product)" *ngIf="product.product_type == 'Soup For The Soul'">
+                  <p> {{product.product_name}}</p>
+                  
+                  </mat-card> 
+           </div> 
+          </mat-tab>
+          
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>

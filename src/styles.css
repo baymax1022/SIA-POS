@@ -1,11 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
-
+/* 
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;500&display=swap');
-/* GLOBAL */
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;500&display=swap'); */
 html, body {
-    height: 100%; }
+  height: 100%; 
+  overflow: hidden;
+}
+/* GLOBAL *//* 
+
 body {
   margin: 0;
   font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
@@ -19,8 +22,8 @@ a:hover{
   font-weight: bold;
 }
 
-
-/* CARD FOR THE RIGHT DIV */
+ */
+/* CARD FOR THE RIGHT DIV *//* 
 .card-main{  
   margin-left: 20px;
   margin-top: 20px;
@@ -32,10 +35,10 @@ a:hover{
   border-radius: 30px;
   overflow: auto;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
+} */
 /* Buttons in card-main css */
 
-/* Plain Button Design */
+/* Plain Button Design *//* 
 .card-main-button{
   background-color: lightgray;
   padding: 9px;
@@ -45,8 +48,8 @@ a:hover{
 }
 .card-main-button:hover{
   background-color: transparent;
-}
-/* Edit Button Design */
+} */
+/* Edit Button Design *//* 
 .card-edit-button{
   color: #289672;
   padding: 10px;
@@ -55,8 +58,8 @@ a:hover{
 }
 .card-edit-button:hover{
   background-color: #EDECDF;
-}
-/* Delete Button Design */
+} */
+/* Delete Button Design *//* 
 .card-delete-button{
   color: #fb3640;
   padding: 10px;
@@ -65,8 +68,8 @@ a:hover{
 }
 .card-delete-button:hover{
   background-color: #EDECDF;
-}
-/* View Button */
+} */
+/* View Button *//* 
 .card-view-button{
   color: gray;;
   padding: 10px;
@@ -75,14 +78,14 @@ a:hover{
 }
 .card-view-button:hover{
   background-color: #EDECDF;
-}
-/* Label for Title Page */
+} */
+/* Label for Title Page *//* 
 .list-label{
   float: left;
   width: 30%;
   padding: 10px;
-}
-/* Search Design */
+} */
+/* Search Design *//* 
 .search-input{
   float: left;
   width: 30%;
@@ -96,8 +99,8 @@ a:hover{
   outline: none;
   border-radius: 10px;
 }
-
-/* Others */
+ */
+/* Others *//* 
 .card{
   float: left;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -127,3 +130,4 @@ td {
   font-family: 'Mukta', sans-serif;
   
 }
+ */
