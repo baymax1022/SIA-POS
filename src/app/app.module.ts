@@ -60,6 +60,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { POSComponent } from './pos/pos.component';
 
 import { OrderComponent } from './index/order/order.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 
@@ -73,7 +74,8 @@ import { OrderComponent } from './index/order/order.component';
     TestingComponent,
 
 
-    POSComponent   
+    POSComponent,
+    PaymentComponent   
   ],
   imports: [
     BrowserModule,

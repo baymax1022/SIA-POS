@@ -59,14 +59,18 @@
     </div>
       <div class="sticky" >
         <mat-list>
-          <mat-list-item><button>Add Discount</button> </mat-list-item>
+          <mat-list-item>
+            <button>Add Discount</button>
+            <button (click)="countUp">Add Quantity</button>
+            <button (click)="countDown">decrease Discount</button>
+          </mat-list-item>
           <mat-list-item > SubTotal <span [(ngModel)]="total" class="summary"> {{total | currency : 'PHP': 'symbol-narrow' : ''}}</span> </mat-list-item>
           <mat-list-item> Total </mat-list-item>
          </mat-list>
         <mat-grid-list cols="4" rowHeight="2:1">
 
          <mat-grid-tile>
-           Qty: 
+           Qty: <span [(ngModel)]="inputText" id="inputText">{{inputText}}</span>
          </mat-grid-tile>
 
           <mat-grid-tile>
