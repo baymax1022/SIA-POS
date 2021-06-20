@@ -4,7 +4,7 @@ import { IndexComponent } from './index/index.component';
 import { POSComponent } from './pos/pos.component';
 import { LoginComponent } from './login/login.component';
 import { PaymentComponent } from './payment/payment.component';
-
+import { OrderComponent } from './index/order/order.component';
 const routes: Routes = [
   { path: '', component: IndexComponent },
   {
@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'payment', 
     component: PaymentComponent
+  },
+  {
+    path: 'order', 
+    component: OrderComponent
   }
   
 ];

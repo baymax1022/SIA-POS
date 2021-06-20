@@ -43,7 +43,7 @@ export class POSComponent implements OnInit {
     this.pullProduct();
     this.pullPreOrder();
     this.pullOrder();
-    this.getTotal();
+    this.getSubTotal();
   }
 
   
@@ -118,8 +118,10 @@ export class POSComponent implements OnInit {
 
           }
     }); 
+   
+    
+    this.getSubTotal();
 
-    this.getTotal();
     console.log(this.orderInfo);
     }
   }
@@ -141,14 +143,11 @@ export class POSComponent implements OnInit {
     this.ds.sendApiRequest("pre", null).subscribe((data:any) =>{ 
       this.preOrder = data.payload;
       console.log(this.preOrder);
-      this.getTotal();
-
+      this.getSubTotal();
+  
     })
 
-    
   }
-  
-
   product:any = {};
   pullProduct() 
   { 
@@ -156,30 +155,9 @@ export class POSComponent implements OnInit {
       this.product = data.payload; 
       console.log(this.product);
     })
- 
+  
   }
 //delete function order
-async delOrder(e: any)
- { 
-   this.cardInfo.prodID = e; 
-   Swal.fire({ title: 'Remove item?', 
-    icon: 'warning', 
-    showCancelButton: true, 
-    confirmButtonColor: '#3085d6', 
-    cancelButtonColor: '#d33', 
-    confirmButtonText: 'Yes' 
-  }).then((result) => 
-  { 
-    if (result.isConfirmed) 
-    { 
-      this.ds.sendApiRequest("delOrder", JSON.parse(JSON.stringify(this.cardInfo))).subscribe((data: any) => 
-        { 
-          this.pullOrder(); 
-        }); 
-        Swal.fire( 'Deleted!', 'Item has been removed.', 'success' ) 
-      } 
-    }) 
-  }
 
   async delPre(e: any)
   { 
@@ -208,21 +186,22 @@ async delOrder(e: any)
      this.ds.sendApiRequest("clearOrder", this.orderInfo).subscribe((res:any) => {
     
       this.pullPreOrder();
+    
   });
   }
-   total: number = 0;
-   getTotal() {
-    this.total = 0;
+   subtotal: number = 0;
+   getSubTotal() {
+    this.subtotal = 0;
     for (var i = 0; this.preOrder.length > i; i++){
       console.log(i)
       console.log(this.preOrder[i].price);
-      this.total = this.total + this.preOrder[i].price;
+      this.subtotal = this.subtotal + this.preOrder[i].price;
     }
-
-    console.log(this.preOrder.length)
-    console.log(this.total);
+   
 
    }
+  
+ 
    countUp(){
      this.inputText++;
    }
