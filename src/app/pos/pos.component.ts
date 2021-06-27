@@ -80,6 +80,7 @@ export class POSComponent implements OnInit {
   closeEdit(){
     this.edit = false;
   }
+  
 //adding function to database
   products:any={};
   cardInfo:any={};
@@ -102,17 +103,19 @@ export class POSComponent implements OnInit {
   addPreOrder = (product:any) =>{
 
 
-    if (this.inputText == 0){
-    ("insert quantity");
-    }
-    else {
-    this.orderInfo.product_name = product.product_name ;
-    this.orderInfo.quantity = product.product_quantity * this.inputText;
-    this.orderInfo.price = product.product_price * this.inputText;
-    
-     this.q = this.inputText;
-      this.ds.sendApiRequest("addPreOrder", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => {
-          if(data.remarks == "success"){
+ 
+       if (this.inputText == 0){
+        ("insert quantity");
+      }  
+      else {  
+      
+        this.orderInfo.product_name = product.product_name ;
+        this.orderInfo.quantity = product.product_quantity * this.inputText;
+        this.orderInfo.price = product.product_price * this.inputText;
+          {
+        this.q = this.inputText;
+        this.ds.sendApiRequest("addPreOrder", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => {
+       if(data.remarks == "success"){
             console.log(true)
             this.pullPreOrder();
 
@@ -123,9 +126,9 @@ export class POSComponent implements OnInit {
     this.getSubTotal();
 
     console.log(this.orderInfo);
-    }
-  }
+    }}
   
+}
   
   //pull function order
   order:any;

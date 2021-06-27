@@ -32,6 +32,27 @@ public function addPreOrder($data) {
     return $this->gm->sendPayload($payload, $remarks, $message, $code);
   
 }
+//update
+public function updatePreOrder($data) {
+
+    $code = 401;
+    $payload = null;
+    $remarks = "failed";
+    $message = "Unable to retrieve data";
+    $orderInfo = $data->orderInfo;
+
+    $res = $this->gm->edit('tbl_order', $orderInfo);
+
+    if($res['code']==200) {
+        $code = 200;
+        $payload = $res['data'];
+        $remarks = "success";
+        $message = "Successfully retrieved data";
+        
+    }
+    return $this->gm->sendPayload($payload, $remarks, $message, $code);
+  
+}
 //ADD TO CART
     public function addOrder($data) {
 

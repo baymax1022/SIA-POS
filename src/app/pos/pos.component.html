@@ -96,9 +96,9 @@
             <button (click)="countUp">Add Quantity</button>
             <button (click)="countDown">decrease Discount</button>
           </mat-list-item>
-          <mat-list-item > SubTotal <span name="subtotal" ngDefaultControl class="summary"> {{subtotal | currency : 'PHP': 'symbol-narrow' : ''}}</span> </mat-list-item>
+          <mat-list-item> SubTotal  <span name="total" ngDefaultControl class="summary1"> {{subtotal - subtotal * 0.12 | currency : 'PHP': 'symbol-narrow' : ''}}</span></mat-list-item>
           <mat-list-item > Tax <span name="Tax" ngDefaultControl class="summary"> {{subtotal * 0.12 | currency : 'PHP': 'symbol-narrow' : ''}}</span> </mat-list-item>
-          <mat-list-item> Total  <span name="total" ngDefaultControl class="summary1"> {{subtotal - subtotal * 0.12 | currency : 'PHP': 'symbol-narrow' : ''}}</span></mat-list-item>
+          <mat-list-item > Total <span name="subtotal" ngDefaultControl class="summary"> {{subtotal | currency : 'PHP': 'symbol-narrow' : ''}}</span> </mat-list-item>
          </mat-list>
         <mat-grid-list cols="4" rowHeight="5:4">
 
@@ -122,7 +122,7 @@
       </div>
   </div>
  
-    <!--   <div class="input" style="display: block;">
+  <!--     <div class="input" style="display: block;">
         <mat-form-field>
            <p>Total Amount:</p>
            <br>
