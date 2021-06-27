@@ -39,6 +39,10 @@
                     $d = json_decode(base64_decode(file_get_contents("php://input")));
                     echo json_encode($gm->insert("tbl_product",$d), JSON_PRETTY_PRINT);
                 break;
+				case 'updatePreOrder':
+                    $d = json_decode(base64_decode(file_get_contents("php://input")));
+                    echo json_encode($gm->edit("tbl_order",$d), JSON_PRETTY_PRINT);
+                break;
 				case 'prod':                   
 					if(count($req)>1) {                        
 						echo json_encode($get->pullProduct($req[1]), JSON_PRETTY_PRINT);                   

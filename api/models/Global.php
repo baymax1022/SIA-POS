@@ -108,7 +108,7 @@
 					}
 				}
 
-				$sqlstr .= " WHERE product_name =  ". $data -> product_name;
+				$sqlstr .= " WHERE product_name = '$data->product_name'";
 				$sql = $this->pdo->prepare($sqlstr);
 				$sql->execute($values);
 
