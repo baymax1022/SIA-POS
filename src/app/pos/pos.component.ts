@@ -101,7 +101,30 @@ export class POSComponent implements OnInit {
   //addPreorder
   orderInfo: any = {};
   addPreOrder = (product: any) => {
+    if (this.inputText == 0){
+      ("insert quantity");
+    }  
+    else {  
+    
+      this.orderInfo.product_name = product.product_name ;
+      this.orderInfo.quantity = product.product_quantity * this.inputText;
+      this.orderInfo.price = product.product_price * this.inputText;
+        {
+      this.q = this.inputText;
+      this.ds.sendApiRequest("addPreOrder", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => {
+     if(data.remarks == "success"){
+          console.log(true)
+          this.pullPreOrder();
 
+        }
+  }); 
+ 
+  
+  this.getSubTotal();
+
+  console.log(this.orderInfo);
+    /*code ni mico
+/* 
     this.orderInfo.product_name = product.product_name;
     this.orderInfo.quantity = product.product_quantity * this.inputText;
     this.orderInfo.price = product.product_price * this.inputText;
@@ -119,8 +142,8 @@ if(this.preOrder.length == 0){
       this.pullPreOrder();
     }
   }); //api
-}
-if(this.preOrder.length > 0){
+} */
+/* if(this.preOrder.length > 0){
 
   for(let j = 0; j < this.preOrder.length; j++){
     console.log(product.product_name);
@@ -165,11 +188,11 @@ if(this.preOrder.length > 0){
     }//else
 
   }//end loop
-}
+} */
 
 
 
-  });//API
+  }};//API
 
 
 
